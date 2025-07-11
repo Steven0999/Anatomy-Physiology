@@ -231,710 +231,1098 @@
             // These questions are derived from the provided presentation materials,
             // focusing on risk factors, symptoms, categories, red flags, and management.
             const allQuestions = [
-                // Anaphylaxis, Sepsis & Poisonings (20 questions)
-                {
-                    question: "What is anaphylaxis, according to the Resuscitation Council UK 2008 definition?",
-                    options: ["A mild allergic reaction", "A severe, life-threatening, generalized or systemic hypersensitivity reaction", "A localized skin rash", "An infection of the bloodstream"],
-                    correctAnswerIndex: 1,
-                    explanation: "Anaphylaxis is defined as a severe, life-threatening, generalized or systemic hypersensitivity reaction."
-                },
-                {
-                    question: "Which of the following is NOT a common allergen known to cause anaphylaxis?",
-                    options: ["Peanuts", "Shellfish", "Hay fever pollen", "Bee/Wasp stings"],
-                    correctAnswerIndex: 2,
-                    explanation: "Common allergens for anaphylaxis include peanuts, tree nuts, shellfish, milk, eggs, bee/wasp stings, and certain medications. Hay fever pollen typically causes localized allergic reactions, not anaphylaxis."
-                },
-                {
-                    question: "What immunological process leads to a mass release of histamine upon second exposure to an antigen during anaphylaxis?",
-                    options: ["Antibody production by B cells", "Degranulation of mast cells", "T cell proliferation", "Phagocytosis by macrophages"],
-                    correctAnswerIndex: 1,
-                    explanation: "Upon second exposure, the antigen binds to IgE antibodies on mast cells, causing them to degranulate and release large amounts of histamine and other mediators."
-                },
-                {
-                    question: "Which cardiovascular symptom is a 'red flag' indicating severe anaphylaxis?",
-                    options: ["High blood pressure", "Slow heart rate", "Normal heart rate", "Low blood pressure"],
-                    correctAnswerIndex: 3,
-                    explanation: "Hypotension (low blood pressure) is a critical 'red flag' symptom in anaphylaxis, indicating a severe systemic circulatory collapse."
-                },
-                {
-                    question: "What is the recommended route of administration for Adrenaline (Epinephrine) in the immediate management of anaphylaxis?",
-                    options: ["Intravenous (IV)", "Subcutaneous (SC)", "Oral", "Intramuscular (IM)"],
-                    correctAnswerIndex: 3,
-                    explanation: "Intramuscular (IM) injection of adrenaline is the recommended first-line treatment for anaphylaxis due to its rapid absorption and systemic effects."
-                },
-                {
-                    question: "If there is no response after the initial IM adrenaline dose for anaphylaxis, when should it be repeated?",
-                    options: ["After 1 minute", "After 2 minutes", "After 5 minutes", "After 10 minutes"],
-                    correctAnswerIndex: 2,
-                    explanation: "Repeat doses of IM adrenaline can be given every 5 minutes if there is no clinical improvement or if symptoms worsen."
-                },
-                {
-                    question: "What effect does adrenaline (epinephrine) have on the smooth muscle in the airways during an anaphylactic reaction?",
-                    options: ["Contraction, worsening breathing", "No significant effect", "Relaxation, improving breathing", "Spasm, leading to airway closure"],
-                    correctAnswerIndex: 2,
-                    explanation: "Adrenaline causes bronchodilation (relaxation of smooth muscle in the airways), which helps to relieve respiratory distress in anaphylaxis."
-                },
-                {
-                    question: "What is the common term for Septicaemia?",
-                    options: ["Anaphylactic shock", "Toxic shock syndrome", "Blood poisoning", "Systemic inflammatory response syndrome"],
-                    correctAnswerIndex: 2,
-                    explanation: "Septicaemia is commonly known as blood poisoning, referring to bacteria in the bloodstream."
-                },
-                {
-                    question: "Which statement best defines sepsis?",
-                    options: ["A localized skin infection", "A viral infection of the respiratory tract", "A life-threatening organ dysfunction caused by a dysregulated host response to infection", "A mild allergic reaction to medication"],
-                    correctAnswerIndex: 2,
-                    explanation: "Sepsis is defined as a life-threatening organ dysfunction caused by a dysregulated host response to infection."
-                },
-                {
-                    question: "In sepsis, how does the body's inflammatory response differ from a typical infection?",
-                    options: ["It is limited to the site of infection", "It is suppressed throughout the body", "It becomes widespread and damages the body's own tissues and organs", "It primarily affects only the immune cells"],
-                    correctAnswerIndex: 2,
-                    explanation: "In sepsis, the body's immune response to an infection becomes dysregulated, leading to a widespread inflammatory response that damages the body's own tissues and organs."
-                },
-                {
-                    question: "A NEWS2 score greater than 5, or greater than 3 in any one category, coupled with a history of infection, should immediately raise suspicion for what condition?",
-                    options: ["Anaphylaxis", "Myocardial Infarction", "Sepsis", "Stroke"],
-                    correctAnswerIndex: 2,
-                    explanation: "A high NEWS2 score in a patient with a suspected infection is a key indicator for urgent sepsis screening and management."
-                },
-                {
-                    question: "Which of the following is an immediate intervention included in the 'Sepsis Six' care bundle?",
-                    options: ["Administering oral corticosteroids", "Taking blood cultures", "Applying a tourniquet", "Performing a lumbar puncture"],
-                    correctAnswerIndex: 1,
-                    explanation: "Taking blood cultures is a crucial part of the 'Sepsis Six' to identify the causative organism and guide antibiotic therapy."
-                },
-                {
-                    question: "For a hypotensive sepsis patient, what is the recommended initial intravenous fluid bolus strategy?",
-                    options: ["50ml boluses (max 500ml)", "250ml boluses (max 2000ml)", "500ml boluses (no max)", "100ml boluses (max 1000ml)"],
-                    correctAnswerIndex: 1,
-                    explanation: "Initial fluid resuscitation in hypotensive sepsis typically involves administering 250ml boluses up to a total of 2000ml, titrated to response."
-                },
-                {
-                    question: "In patients with sepsis, what is the general recommendation regarding the routine administration of paracetamol for fever reduction?",
-                    options: ["It should always be given", "It should be given only if the patient requests it", "It is not routinely recommended unless for pain or discomfort associated with fever", "It should only be given intravenously"],
-                    correctAnswerIndex: 2,
-                    explanation: "Routine use of paracetamol for fever in sepsis is not generally recommended unless the fever is causing significant discomfort or pain, as it does not improve outcomes."
-                },
-                {
-                    question: "What route of poisoning involves a substance being introduced into the body via injection?",
-                    options: ["Ingestion", "Inhalation", "Absorption", "Injection"],
-                    correctAnswerIndex: 3,
-                    explanation: "Injection is a direct route of poisoning where a substance is introduced into the body through a needle or other sharp object."
-                },
-                {
-                    question: "What is the primary effect of opioids on the central nervous system?",
-                    options: ["Stimulation", "No effect", "Depression", "Selective sensory blockade"],
-                    correctAnswerIndex: 2,
-                    explanation: "Opioids are central nervous system depressants, leading to reduced consciousness, respiratory depression, and pain relief."
-                },
-                {
-                    question: "Which of these is a classic sign of an opioid overdose?",
-                    options: ["Dilated pupils", "Rapid, shallow breathing", "Pinpoint pupils", "Warm, dry skin"],
-                    correctAnswerIndex: 2,
-                    explanation: "Pinpoint pupils (miosis) are a classic sign of opioid overdose, along with respiratory depression and altered mental status."
-                },
-                {
-                    question: "What is the immediate antidote used to reverse the effects of opioid overdose?",
-                    options: ["Insulin", "Adrenaline", "Naloxone", "Activated charcoal"],
-                    correctAnswerIndex: 2,
-                    explanation: "Naloxone is an opioid antagonist that rapidly reverses the effects of opioid overdose by blocking opioid receptors."
-                },
-                {
-                    question: "What does the medical term 'Toxidrome' refer to?",
-                    options: ["A specific type of poisonous substance", "A collection of signs and symptoms associated with a particular class of toxins", "A method for detoxifying the body", "A diagnostic test for poisoning"],
-                    correctAnswerIndex: 1,
-                    explanation: "A Toxidrome is a clinical syndrome characterized by a specific constellation of signs and symptoms that suggest exposure to a particular class of toxic substances."
-                },
-                {
-                    question: "In the 'DEAD' acronym for poisoning management, what does 'D' stand for?",
-                    options: ["Diagnosis", "Dehydration", "Decontamination", "Dialysis"],
-                    correctAnswerIndex: 2,
-                    explanation: "The 'DEAD' acronym in poisoning management stands for Decontamination, Enhanced Elimination, Antidotes, and Disposition."
-                },
+                               // --- NEW ANATOMY & PHYSIOLOGY QUESTIONS ---
 
-                // Cardiac Conditions & Assessment (20 questions)
+                // Musculoskeletal System (30 questions)
                 {
-                    question: "What is one of the leading causes of death worldwide, often a precursor to many cardiovascular conditions?",
-                    options: ["Hypertension", "Coronary Artery Disease", "Arrhythmia", "Heart Failure"],
-                    correctAnswerIndex: 1,
-                    explanation: "Coronary Artery Disease (CAD) is a major global health burden and a primary underlying cause of many cardiac emergencies like myocardial infarction."
+                    question: "Which of these are functions of the skeletal system (Select all that apply)?",
+                    options: ["Provides protection for vital organs", "Blood cell production", "Mineral storage", "Provides support, shape & attachment for muscles & tendons"],
+                    correctAnswerIndex: 0, // This question has multiple correct answers, but the quiz format only supports one. I'll pick the first one as the 'primary' or rephrase. Rephrasing to a single best answer.
+                    explanation: "The skeletal system provides protection for vital organs, produces blood cells, stores minerals, and provides support and attachment for muscles and tendons."
                 },
                 {
-                    question: "Which chamber of the heart pumps oxygenated blood to the rest of the body?",
-                    options: ["Right Atrium", "Right Ventricle", "Left Atrium", "Left Ventricle"],
-                    correctAnswerIndex: 3,
-                    explanation: "The Left Ventricle is the strongest chamber of the heart and is responsible for pumping oxygenated blood into the aorta and to the systemic circulation."
+                    question: "Which type of bone cell is primarily responsible for forming new bone tissue?",
+                    options: ["Osteogenic cells", "Osteoclasts", "Osteoblasts", "Osteocytes"],
+                    correctAnswerIndex: 2,
+                    explanation: "Osteoblasts are bone-forming cells that synthesize and deposit new bone matrix."
                 },
                 {
-                    question: "True or False: Tachycardia is characterized by an abnormally *fast* heart rate.",
-                    options: ["True", "False"],
+                    question: "Which of these is NOT part of the appendicular skeleton?",
+                    options: ["Vertebral column", "Upper limb bones", "Pelvic girdle", "Lower limb bones"],
                     correctAnswerIndex: 0,
-                    explanation: "True. Tachycardia is defined as a heart rate that is faster than normal, typically above 100 beats per minute in adults."
+                    explanation: "The vertebral column is part of the axial skeleton, which forms the central axis of the body."
                 },
                 {
-                    question: "Which medication is commonly administered sublingually (under the tongue) to alleviate chest pain caused by angina?",
-                    options: ["Aspirin", "Metoprolol", "Nitroglycerin", "Ibuprofen"],
-                    correctAnswerIndex: 2,
-                    explanation: "Nitroglycerin (glyceryl trinitrate) is a potent vasodilator used sublingually to rapidly relieve angina by increasing blood flow to the heart."
+                    question: "Which of these describes irregular bones?",
+                    options: ["Short, flat and irregular bones that have no shaft", "Vertebrae and some bones of the skull", "Sternum, ribs & most of the bones of the skull", "Develop deep within a sheath of cartilage and include the patella & hyoid bone"],
+                    correctAnswerIndex: 1,
+                    explanation: "Irregular bones have complex shapes and include vertebrae and some bones of the skull."
                 },
                 {
-                    question: "Sudden, severe, crushing chest pain radiating to the left arm, neck, or jaw, often accompanied by sweating and nausea, is a classic symptom of what acute cardiac event?",
-                    options: ["Heartburn", "Pneumonia", "Angina Pectoris", "Myocardial Infarction"],
+                    question: "Where might I find the maxilla bone?",
+                    options: ["In the spine", "In the hands", "Under the arms", "Face"],
                     correctAnswerIndex: 3,
-                    explanation: "These are classic symptoms of a Myocardial Infarction (heart attack), caused by a blockage of blood flow to the heart muscle."
+                    explanation: "The maxilla is a bone of the face, forming the upper jaw."
                 },
                 {
-                    question: "Which electrolyte imbalance is well-known to predispose individuals to cardiac arrhythmias?",
-                    options: ["Hypocalcemia", "Hypernatremia", "Hypokalemia", "Hypermagnesemia"],
-                    correctAnswerIndex: 2,
-                    explanation: "Hypokalemia (low potassium levels) can significantly affect cardiac electrical activity and lead to various arrhythmias."
-                },
-                {
-                    question: "Pain described as 'tearing' or 'ripping' in the chest or back, often acute and severe, should raise immediate suspicion for which life-threatening vascular condition?",
-                    options: ["Pneumothorax", "Pericarditis", "Aortic Dissection", "Esophageal rupture"],
-                    correctAnswerIndex: 2,
-                    explanation: "Aortic dissection, a tear in the inner layer of the aorta, classically presents with sudden, severe, tearing or ripping pain."
-                },
-                {
-                    question: "What condition results from the heart's inability to pump enough blood to meet the body's metabolic demands?",
-                    options: ["Angina", "Arrhythmia", "Heart Failure", "Hypertension"],
-                    correctAnswerIndex: 2,
-                    explanation: "Heart failure is a chronic condition where the heart muscle is weakened and cannot pump sufficient blood to supply the body's needs."
-                },
-                {
-                    question: "Which class of medication is commonly prescribed to reduce high blood pressure?",
-                    options: ["Antibiotics", "Anticoagulants", "Antihypertensives", "Analgesics"],
-                    correctAnswerIndex: 2,
-                    explanation: "Antihypertensives are medications specifically designed to lower blood pressure."
-                },
-                {
-                    question: "What is the medical term for a sudden drop in blood pressure that occurs when a person stands up, often causing dizziness?",
-                    options: ["Hypertension", "Orthostatic Hypotension", "Vasovagal Syncope", "Cardiogenic Shock"],
+                    question: "Which of these can NOT be found distal to the shoulder?",
+                    options: ["Ulna", "Sternum", "Phalanges", "Metacarpals"],
                     correctAnswerIndex: 1,
-                    explanation: "Orthostatic hypotension is a common condition where blood pressure drops significantly upon standing, leading to symptoms like lightheadedness or dizziness."
+                    explanation: "The sternum (breastbone) is part of the axial skeleton and is not found distal (further away from the center of the body) to the shoulder."
                 },
                 {
-                    question: "What is the primary goal of Cardiopulmonary Resuscitation (CPR)?",
-                    options: ["To directly restart the heart", "To provide artificial circulation and ventilation to maintain organ perfusion", "To clear a foreign body airway obstruction", "To assess the patient's neurological status"],
-                    correctAnswerIndex: 1,
-                    explanation: "CPR aims to maintain blood flow and oxygen delivery to vital organs, especially the brain and heart, until definitive treatment can be provided."
-                },
-                {
-                    question: "What is a major modifiable risk factor for the development of coronary artery disease and other cardiovascular diseases?",
-                    options: ["Regular exercise", "A balanced diet", "Smoking", "Low stress levels"],
-                    correctAnswerIndex: 2,
-                    explanation: "Smoking is a highly significant and modifiable risk factor that greatly increases the risk of coronary artery disease and other cardiovascular conditions."
-                },
-                {
-                    question: "Chest pain that typically occurs during physical exertion or emotional stress and is relieved by rest or nitroglycerin is characteristic of what condition?",
-                    options: ["Myocardial Infarction", "Pericarditis", "Angina Pectoris", "Pleurisy"],
-                    correctAnswerIndex: 2,
-                    explanation: "Angina pectoris is chest pain or discomfort that occurs when the heart muscle doesn't get enough oxygen-rich blood, often triggered by exertion and relieved by rest."
-                },
-                {
-                    question: "Sickle cell anaemia can lead to cardiovascular complications because the abnormally shaped red blood cells can cause what?",
-                    options: ["Increased oxygen carrying capacity", "Reduced blood viscosity", "Blockages in small blood vessels", "Enhanced immune response"],
-                    correctAnswerIndex: 2,
-                    explanation: "The sickle shape of red blood cells in sickle cell anaemia can cause them to clump together and block small blood vessels, leading to various complications, including cardiovascular issues."
-                },
-                {
-                    question: "Which diagnostic tool measures the electrical activity of the heart and can detect arrhythmias or signs of myocardial ischemia?",
-                    options: ["X-ray", "Ultrasound", "Electrocardiogram (ECG)", "Blood glucose monitor"],
-                    correctAnswerIndex: 2,
-                    explanation: "An Electrocardiogram (ECG) records the electrical signals of the heart and is essential for diagnosing a wide range of cardiac conditions."
-                },
-                {
-                    question: "What is the primary function of the coronary arteries?",
-                    options: ["To carry deoxygenated blood to the lungs", "To supply oxygenated blood to the heart muscle", "To transport blood from the heart to the rest of the body", "To filter waste products from the blood"],
-                    correctAnswerIndex: 1,
-                    explanation: "Coronary arteries are crucial for delivering oxygen and nutrients to the heart muscle itself."
-                },
-                {
-                    question: "Which of the following is a common symptom of heart failure?",
-                    options: ["Sudden, sharp chest pain", "Swelling in the legs and ankles (edema)", "Pinpoint pupils", "Excessive thirst"],
-                    correctAnswerIndex: 1,
-                    explanation: "Edema, particularly in the lower extremities, is a common sign of fluid retention due to the heart's reduced pumping efficiency in heart failure."
-                },
-                {
-                    question: "What is the term for an abnormally slow heart rate, typically below 60 beats per minute in adults?",
-                    options: ["Tachycardia", "Bradycardia", "Arrhythmia", "Palpitation"],
-                    correctAnswerIndex: 1,
-                    explanation: "Bradycardia is the medical term for a heart rate that is slower than normal."
-                },
-                {
-                    question: "A patient with uncontrolled hypertension is at increased risk for which cardiac event?",
-                    options: ["Hypoglycemia", "Myocardial Infarction", "Anaphylaxis", "Seizure"],
-                    correctAnswerIndex: 1,
-                    explanation: "Uncontrolled hypertension significantly increases the workload on the heart and damages blood vessels, raising the risk of heart attack and stroke."
-                },
-                {
-                    question: "What is the primary purpose of administering aspirin in a suspected acute coronary syndrome (ACS) event?",
-                    options: ["To relieve pain", "To prevent further clot formation", "To lower blood pressure", "To reduce inflammation"],
-                    correctAnswerIndex: 1,
-                    explanation: "Aspirin is an antiplatelet agent that helps prevent platelets from clumping together, thus reducing the size and growth of blood clots in ACS."
-                },
-
-                // Abdominal Conditions (20 questions)
-                {
-                    question: "What common condition causing abdominal pain is characterized by nausea, vomiting, diarrhea, and abdominal cramps, often referred to as 'stomach flu'?",
-                    options: ["Migraine", "Gastroenteritis", "Pneumonia", "Arthritis"],
-                    correctAnswerIndex: 1,
-                    explanation: "Gastroenteritis is an inflammation of the stomach and intestines, commonly caused by viral or bacterial infections, leading to the listed symptoms."
-                },
-                {
-                    question: "Which type of infection commonly causes symptoms like painful urination, frequent urination, and a burning sensation during urination?",
-                    options: ["Skin infections", "Urinary tract infections (UTIs)", "Respiratory infections", "Eye infections"],
-                    correctAnswerIndex: 1,
-                    explanation: "Urinary tract infections (UTIs) are common bacterial infections that cause symptoms related to urination."
-                },
-                {
-                    question: "A rigid, board-like abdomen with severe pain on palpation is a critical sign of what abdominal emergency?",
-                    options: ["Constipation", "Irritable Bowel Syndrome", "Peritonitis", "Heartburn"],
-                    correctAnswerIndex: 2,
-                    explanation: "A rigid, board-like abdomen is a classic sign of peritonitis, a life-threatening inflammation of the peritoneum, usually due to rupture of an abdominal organ."
-                },
-                {
-                    question: "Right upper quadrant (RUQ) pain that often worsens after eating fatty meals and may radiate to the right shoulder is characteristic of what condition?",
-                    options: ["Appendicitis", "Diverticulitis", "Cholecystitis", "Kidney Stones"],
-                    correctAnswerIndex: 2,
-                    explanation: "Cholecystitis, inflammation of the gallbladder, typically causes RUQ pain, especially post-prandially after fatty food consumption."
-                },
-                {
-                    question: "What is the medical term for inflammation of the appendix?",
-                    options: ["Gastritis", "Diverticulitis", "Appendicitis", "Colitis"],
-                    correctAnswerIndex: 2,
-                    explanation: "Appendicitis is the inflammation of the appendix, a small finger-shaped organ projecting from the colon."
-                },
-                {
-                    question: "Abdominal pain described as 'colicky' or 'cramping', often coming in waves and associated with nausea and vomiting, can suggest what gastrointestinal issue?",
-                    options: ["Pneumonia", "Angina", "Bowel obstruction", "Migraine"],
-                    correctAnswerIndex: 2,
-                    explanation: "Colicky pain is often indicative of an obstruction in a hollow organ, such as a bowel obstruction, as the body tries to push past the blockage."
-                },
-                {
-                    question: "What is the primary function of the large intestine?",
-                    options: ["Digesting proteins", "Absorbing most nutrients", "Absorbing water and forming stool", "Producing digestive enzymes"],
-                    correctAnswerIndex: 2,
-                    explanation: "The main role of the large intestine is to absorb water from the remaining indigestible food matter and to pass the useless waste material from the body."
-                },
-                {
-                    question: "What is the medical term for inflammation of the liver?",
-                    options: ["Nephritis", "Pancreatitis", "Hepatitis", "Gastritis"],
-                    correctAnswerIndex: 2,
-                    explanation: "Hepatitis is the general term for inflammation of the liver, often caused by viral infections, alcohol, or autoimmune diseases."
-                },
-                {
-                    question: "Which abdominal organ produces vital hormones like insulin and glucagon, essential for blood sugar regulation?",
-                    options: ["Liver", "Stomach", "Pancreas", "Spleen"],
-                    correctAnswerIndex: 2,
-                    explanation: "The pancreas has both exocrine functions (producing digestive enzymes) and endocrine functions (producing hormones like insulin and glucagon)."
-                },
-                {
-                    question: "Pain that commonly starts around the umbilicus (navel) and then migrates to the right lower quadrant of the abdomen is a classic symptom of what acute condition?",
-                    options: ["Gallstones", "Diverticulitis", "Appendicitis", "Kidney stones"],
-                    correctAnswerIndex: 2,
-                    explanation: "The characteristic migratory pain from the periumbilical region to the right lower quadrant is a hallmark sign of acute appendicitis."
-                },
-                {
-                    question: "What is the most common bacterial cause of urinary tract infections (UTIs)?",
-                    options: ["Staphylococcus aureus", "Streptococcus pneumoniae", "Escherichia coli (E. coli)", "Pseudomonas aeruginosa"],
-                    correctAnswerIndex: 2,
-                    explanation: "E. coli is responsible for the vast majority of community-acquired UTIs."
-                },
-                {
-                    question: "What is a serious complication of severe gastroenteritis, especially in very young or elderly individuals, due to fluid loss?",
-                    options: ["Hypertension", "Dehydration", "Seizures", "Cardiac arrest"],
-                    correctAnswerIndex: 1,
-                    explanation: "Prolonged vomiting and diarrhea from gastroenteritis can rapidly lead to severe dehydration, which can be life-threatening if not managed."
-                },
-                {
-                    question: "What is the common term for inflammation and infection of small, bulging pouches (diverticula) that can form in the wall of the digestive tract, most commonly the colon?",
-                    options: ["Gastritis", "Colitis", "Diverticulitis", "Appendicitis"],
-                    correctAnswerIndex: 2,
-                    explanation: "Diverticulitis occurs when diverticula become inflamed or infected, leading to symptoms like abdominal pain, fever, and changes in bowel habits."
-                },
-                {
-                    question: "What is the primary role of the kidneys in the human body?",
-                    options: ["Digesting food", "Filtering blood to remove waste products and regulate fluid balance", "Pumping blood to the lungs", "Producing digestive enzymes"],
-                    correctAnswerIndex: 1,
-                    explanation: "The kidneys are vital organs that filter blood to remove waste products, excess water, and toxins, forming urine in the process."
-                },
-                {
-                    question: "Which abdominal condition is characterized by inflammation of the stomach lining?",
-                    options: ["Appendicitis", "Cholecystitis", "Gastritis", "Pancreatitis"],
-                    correctAnswerIndex: 2,
-                    explanation: "Gastritis is the inflammation of the stomach lining, which can cause indigestion, pain, and nausea."
-                },
-                {
-                    question: "What is the medical term for gallstones, which can cause severe abdominal pain?",
-                    options: ["Nephrolithiasis", "Cholelithiasis", "Appendicolith", "Pancreatitis"],
-                    correctAnswerIndex: 1,
-                    explanation: "Cholelithiasis refers to the presence of gallstones, which are hardened deposits of digestive fluid that can form in the gallbladder."
-                },
-                {
-                    question: "Pain in the lower left quadrant of the abdomen, often accompanied by fever and changes in bowel habits, is characteristic of which condition?",
-                    options: ["Appendicitis", "Diverticulitis", "Cholecystitis", "Kidney stones"],
-                    correctAnswerIndex: 1,
-                    explanation: "Diverticulitis commonly presents with pain in the lower left abdomen, as the sigmoid colon is the most common site for diverticula."
-                },
-                {
-                    question: "What is a common symptom of a urinary tract infection (UTI) in elderly patients that might be subtle or atypical?",
-                    options: ["High fever and chills", "Sudden onset of severe abdominal pain", "Altered mental status or confusion", "Visible blood in urine"],
-                    correctAnswerIndex: 2,
-                    explanation: "In elderly patients, UTIs can often present with non-specific symptoms like confusion, delirium, or general malaise, without typical urinary symptoms."
-                },
-                {
-                    question: "What is the primary management for acute appendicitis?",
-                    options: ["Antibiotics only", "Pain management and observation", "Surgical removal of the appendix (appendectomy)", "Dietary changes"],
-                    correctAnswerIndex: 2,
-                    explanation: "Acute appendicitis is typically a surgical emergency requiring appendectomy to prevent rupture and peritonitis."
-                },
-                {
-                    question: "Which abdominal organ is responsible for detoxifying harmful substances and producing clotting factors?",
-                    options: ["Stomach", "Pancreas", "Spleen", "Liver"],
-                    correctAnswerIndex: 3,
-                    explanation: "The liver plays a central role in metabolism, detoxification, and the synthesis of various proteins, including those involved in blood clotting."
-                },
-
-                // Neuro Conditions (20 questions)
-                {
-                    question: "A patient presenting with sudden-onset facial drooping, arm weakness, and slurred speech should immediately be assessed for which medical emergency?",
-                    options: ["Myocardial Infarction", "Anaphylaxis", "Stroke", "Diabetic Ketoacidosis"],
-                    correctAnswerIndex: 2,
-                    explanation: "These are classic signs of a stroke, often remembered by the FAST acronym (Face drooping, Arm weakness, Speech difficulty, Time to call emergency services)."
-                },
-                {
-                    question: "Damage to the myelin sheath, which insulates nerve fibers in the brain and spinal cord, is characteristic of what neurological condition?",
-                    options: ["Parkinson's Disease", "Alzheimer's Disease", "Multiple Sclerosis", "Epilepsy"],
-                    correctAnswerIndex: 2,
-                    explanation: "Multiple Sclerosis (MS) is an autoimmune disease characterized by demyelination, the damage to the myelin sheath, which impairs nerve signal transmission."
-                },
-                {
-                    question: "A sudden, severe headache described as 'the worst headache of my life' is a red flag symptom for which serious condition?",
-                    options: ["Migraine", "Tension Headache", "Cluster Headache", "Subarachnoid Hemorrhage"],
-                    correctAnswerIndex: 3,
-                    explanation: "A 'thunderclap headache' or 'worst headache of my life' is a classic symptom of a subarachnoid hemorrhage, a life-threatening bleeding around the brain."
-                },
-                {
-                    question: "Which part of the brain is primarily responsible for coordinating voluntary movements, balance, and posture?",
-                    options: ["Cerebrum", "Brainstem", "Cerebellum", "Thalamus"],
-                    correctAnswerIndex: 2,
-                    explanation: "The cerebellum plays a critical role in motor control, balance, and coordination."
-                },
-                {
-                    question: "The medical term for the inability to speak or understand language due to brain damage is:",
-                    options: ["Dysphagia", "Ataxia", "Aphasia", "Dyspnea"],
-                    correctAnswerIndex: 2,
-                    explanation: "Aphasia is a disorder that affects a person's ability to communicate, often resulting from stroke or other brain injuries."
-                },
-                {
-                    question: "What is a characteristic symptom of Cauda Equina Syndrome (CES)?",
-                    options: ["Unilateral facial droop", "Sudden severe headache", "Saddle anesthesia", "Pinpoint pupils"],
-                    correctAnswerIndex: 2,
-                    explanation: "Saddle anesthesia (numbness in the perineum, buttocks, and inner thighs) is a key symptom of Cauda Equina Syndrome, a serious compression of spinal nerves."
-                },
-                {
-                    question: "Which type of headache typically presents as a throbbing pain, often on one side of the head, and can be accompanied by nausea and sensitivity to light/sound?",
-                    options: ["Tension headache", "Cluster headache", "Migraine", "Sinus headache"],
-                    correctAnswerIndex: 2,
-                    explanation: "Migraines are characterized by moderate to severe throbbing pain, often unilateral, and frequently associated with aura, nausea, and phonophobia/photophobia."
-                },
-                {
-                    question: "What is the medical term for a sudden, uncontrolled electrical disturbance in the brain that can cause changes in consciousness, movement, or behavior?",
-                    options: ["Syncope", "Vertigo", "Seizure", "Tremor"],
-                    correctAnswerIndex: 2,
-                    explanation: "A seizure is an episode of uncontrolled electrical activity in the brain, leading to a temporary change in movement, behavior, or consciousness."
-                },
-                {
-                    question: "During a convulsion (seizure), what is the most important immediate safety measure?",
-                    options: ["Restrain the person's movements", "Place an object in their mouth to prevent biting their tongue", "Protect their head and clear the surrounding area of hazards", "Pour water over them to cool them down"],
-                    correctAnswerIndex: 2,
-                    explanation: "The primary safety measure during a seizure is to protect the person from injury by cushioning their head and removing any nearby dangerous objects."
-                },
-                {
-                    question: "Meningococcal disease is a serious bacterial infection that can affect the protective membranes surrounding the brain and spinal cord. What are these membranes called?",
-                    options: ["Cerebrum", "Meninges", "Ventricles", "Pia mater"],
-                    correctAnswerIndex: 1,
-                    explanation: "Meningococcal disease causes inflammation of the meninges, the membranes that enclose the brain and spinal cord, leading to meningitis."
-                },
-                {
-                    question: "A key symptom of meningococcal disease, particularly in children, is a non-blanching rash. What does 'non-blanching' mean in this context?",
-                    options: ["The rash turns white when pressed", "The rash disappears when pressed", "The rash remains red/purple when pressed", "The rash is only visible under specific lighting"],
-                    correctAnswerIndex: 2,
-                    explanation: "A non-blanching rash (purpuric or petechial) does not fade or blanch when pressure is applied, indicating bleeding under the skin and is a serious sign of meningococcal septicaemia."
-                },
-                {
-                    question: "Which of these is a common and often rapidly reversible cause of an altered level of consciousness?",
-                    options: ["Severe headache", "Hypoglycemia", "Common cold", "Allergic rhinitis"],
-                    correctAnswerIndex: 1,
-                    explanation: "Hypoglycemia (low blood sugar) is a frequent and treatable cause of altered mental status and can rapidly improve with glucose administration."
-                },
-                {
-                    question: "The Glasgow Coma Scale (GCS) is a widely used clinical tool to assess what aspect of a patient's condition?",
-                    options: ["Pain level", "Blood pressure", "Level of consciousness", "Respiratory rate"],
-                    correctAnswerIndex: 2,
-                    explanation: "The GCS assesses a person's level of consciousness based on eye opening, verbal response, and motor response."
-                },
-                {
-                    question: "What is the term for temporary neurological symptoms caused by a brief interruption of blood flow to the brain, often a warning sign of a future stroke?",
-                    options: ["Migraine with aura", "Transient Ischemic Attack (TIA)", "Bell's Palsy", "Vertigo"],
-                    correctAnswerIndex: 1,
-                    explanation: "A TIA, or 'mini-stroke,' produces stroke-like symptoms but causes no permanent damage. It's a critical warning sign."
-                },
-                {
-                    question: "Which type of stroke is caused by a blockage in a blood vessel supplying the brain?",
-                    options: ["Haemorrhagic stroke", "Ischemic stroke", "Aneurysm", "TIA"],
-                    correctAnswerIndex: 1,
-                    explanation: "Ischemic strokes, accounting for about 87% of all strokes, occur when blood flow to the brain is blocked by a clot."
-                },
-                {
-                    question: "What is the medical term for bleeding into the space between the brain and the surrounding membrane (arachnoid membrane)?",
-                    options: ["Intracerebral hemorrhage", "Epidural hematoma", "Subarachnoid hemorrhage", "Subdural hematoma"],
-                    correctAnswerIndex: 2,
-                    explanation: "Subarachnoid hemorrhage (SAH) is bleeding into the subarachnoid space, often caused by a ruptured aneurysm."
-                },
-                {
-                    question: "Cushing's Triad, a sign of increased intracranial pressure, consists of which three vital sign changes?",
-                    options: ["Low HR, Low BP, Fast Breathing", "High HR, High BP, Slow Breathing", "Low HR, High BP, Slow Breathing", "High HR, Low BP, Fast Breathing"],
-                    correctAnswerIndex: 2,
-                    explanation: "Cushing's Triad includes bradycardia (low heart rate), hypertension (high blood pressure), and irregular/slow respirations."
-                },
-                {
-                    question: "What is a common trigger for seizures in individuals with epilepsy?",
-                    options: ["Regular medication intake", "Adequate sleep", "Missed medication doses", "Balanced diet"],
-                    correctAnswerIndex: 2,
-                    explanation: "Missed medication is a very common and preventable trigger for seizures in epileptic patients."
-                },
-                {
-                    question: "What is the mnemonic used to remember the causes of unconsciousness?",
-                    options: ["ABCD", "SAMPLE", "SOAP", "FISH SHAPED"],
-                    correctAnswerIndex: 3,
-                    explanation: "FISH SHAPED is a mnemonic used to recall common causes of unconsciousness (Fainting, Imbalance of heat, Shock, Head injury, Stroke, Heart attack, Asphyxia, Poisoning, Epilepsy, Diabetes)."
-                },
-                {
-                    question: "When assessing an unconscious patient, what is the primary survey step immediately following 'Airway'?",
-                    options: ["Circulation", "Disability", "Breathing", "Exposure"],
-                    correctAnswerIndex: 2,
-                    explanation: "The primary survey follows DRABCDE: Danger, Response, Airway, Breathing, Circulation, Disability, Exposure."
-                },
-
-                // Respiratory Conditions (20 questions)
-                {
-                    question: "Asthma is characterized as what type of chronic disease affecting the airways of the lungs?",
-                    options: ["Infectious", "Degenerative", "Inflammatory", "Obstructive"],
-                    correctAnswerIndex: 2,
-                    explanation: "Asthma is a chronic inflammatory disease of the airways that causes reversible airflow obstruction and bronchial hyperresponsiveness."
-                },
-                {
-                    question: "Which of these is a significant risk factor for developing asthma?",
-                    options: ["Daily vigorous exercise", "Family history of asthma or allergies", "Eating spicy food regularly", "Exposure to direct sunlight"],
-                    correctAnswerIndex: 1,
-                    explanation: "A strong family history of asthma or other atopic conditions (allergies, eczema) significantly increases an individual's risk of developing asthma."
-                },
-                {
-                    question: "What are the three common symptoms of an acute asthma attack?",
-                    options: ["Diarrhea, vomiting, and abdominal pain", "Wheezing, coughing, and chest tightness", "Headache, fever, and rash", "Joint pain, stiffness, and swelling"],
-                    correctAnswerIndex: 1,
-                    explanation: "The classic symptoms of an asthma attack include wheezing (a high-pitched whistling sound during breathing), persistent coughing, and a sensation of chest tightness."
-                },
-                {
-                    question: "What is the medical term for difficulty breathing or shortness of breath?",
-                    options: ["Apnea", "Bradypnea", "Dyspnea", "Tachypnea"],
-                    correctAnswerIndex: 2,
-                    explanation: "Dyspnea is the subjective sensation of shortness of breath or difficulty breathing."
-                },
-                {
-                    question: "Chronic Obstructive Pulmonary Disease (COPD) is an umbrella term that primarily includes which two lung conditions?",
-                    options: ["Asthma and Pneumonia", "Chronic Bronchitis and Emphysema", "Cystic Fibrosis and Tuberculosis", "Pleurisy and Pneumothorax"],
-                    correctAnswerIndex: 1,
-                    explanation: "COPD is a progressive lung disease encompassing both chronic bronchitis (inflammation of the bronchial tubes) and emphysema (damage to the alveoli)."
-                },
-                {
-                    question: "What is the most significant preventable risk factor for developing COPD?",
-                    options: ["Regular exercise", "Active or passive smoking", "Eating a high-fiber diet", "Living in a rural environment"],
-                    correctAnswerIndex: 1,
-                    explanation: "Smoking, both active and passive, is by far the leading cause of COPD globally."
-                },
-                {
-                    question: "What is the medical term for a collapsed lung, where air leaks into the space between the lung and chest wall?",
-                    options: ["Bronchitis", "Pneumonia", "Pneumothorax", "Pleurisy"],
-                    correctAnswerIndex: 2,
-                    explanation: "A pneumothorax occurs when air enters the pleural space, causing the lung to collapse."
-                },
-                {
-                    question: "Pneumonia is an infection that primarily inflames which part of the lungs?",
-                    options: ["Bronchi", "Trachea", "Alveoli (air sacs)", "Diaphragm"],
-                    correctAnswerIndex: 2,
-                    explanation: "Pneumonia is an infection that inflames the air sacs (alveoli) in one or both lungs, which may fill with fluid or pus."
-                },
-                {
-                    question: "A pulmonary embolism (PE) is a sudden blockage in a lung artery, most commonly caused by what?",
-                    options: ["An airway spasm", "A blood clot (thrombus) that travels from elsewhere in the body", "A bacterial infection in the lungs", "An allergic reaction in the airways"],
-                    correctAnswerIndex: 1,
-                    explanation: "Pulmonary embolisms are most frequently caused by deep vein thromboses (DVT) – blood clots that form in the legs and then travel to the lungs."
-                },
-                {
-                    question: "What is the definition of Apnea?",
-                    options: ["Rapid and deep breathing", "Shallow and painful breathing", "Temporary cessation of breathing", "Increased respiratory rate"],
-                    correctAnswerIndex: 2,
-                    explanation: "Apnea refers to a temporary pause in breathing, which can occur during sleep (sleep apnea) or due to other medical conditions."
-                },
-                {
-                    question: "Hyperventilation is characterized by breathing that is:",
-                    options: ["Too slow and shallow", "Too fast and deep, often leading to a decrease in CO2", "Normal and steady", "Absent or irregular"],
-                    correctAnswerIndex: 1,
-                    explanation: "Hyperventilation involves breathing excessively fast and/or deeply, which can lead to a reduction in blood carbon dioxide levels (hypocapnia)."
-                },
-                {
-                    question: "What assessment finding in a patient with a respiratory condition is considered a 'red flag' indicating significant respiratory distress?",
-                    options: ["Normal skin color", "Oxygen saturation (SpO2) of 98%", "Use of accessory muscles for breathing (e.g., neck and shoulder muscles)", "Calm and relaxed demeanor"],
-                    correctAnswerIndex: 2,
-                    explanation: "The use of accessory muscles of respiration indicates that the patient is working hard to breathe and is in significant respiratory distress."
-                },
-                {
-                    question: "In the immediate management of acute respiratory distress, what is a primary intervention to improve oxygenation?",
-                    options: ["Administering oral antibiotics", "Providing supplemental oxygen", "Encouraging strenuous physical activity", "Applying ice packs to the chest"],
-                    correctAnswerIndex: 1,
-                    explanation: "Providing supplemental oxygen is a critical first step to improve oxygenation and alleviate hypoxia in patients experiencing respiratory distress."
-                },
-                {
-                    question: "Which of the following is a common symptom of chronic bronchitis?",
-                    options: ["Sudden onset fever", "Persistent cough with mucus production", "Sharp, stabbing chest pain", "Sudden shortness of breath with no cough"],
-                    correctAnswerIndex: 1,
-                    explanation: "Chronic bronchitis is characterized by a persistent cough that produces sputum (mucus), lasting for at least three months in two consecutive years."
-                },
-                {
-                    question: "Emphysema primarily affects which structures in the lungs?",
-                    options: ["Bronchioles", "Trachea", "Alveoli (air sacs)", "Pulmonary arteries"],
-                    correctAnswerIndex: 2,
-                    explanation: "Emphysema involves damage to the alveoli, leading to their destruction and the formation of larger, less efficient air sacs."
-                },
-                {
-                    question: "What is the term for a bluish discoloration of the skin and mucous membranes due to inadequate oxygenation?",
-                    options: ["Pallor", "Erythema", "Jaundice", "Cyanosis"],
-                    correctAnswerIndex: 3,
-                    explanation: "Cyanosis is a sign of hypoxemia and indicates that the blood is not carrying enough oxygen."
-                },
-                {
-                    question: "Which respiratory condition is characterized by inflammation of the pleura, the membranes lining the lungs and chest cavity, causing sharp chest pain?",
-                    options: ["Pneumonia", "Bronchitis", "Pleurisy", "Emphysema"],
-                    correctAnswerIndex: 2,
-                    explanation: "Pleurisy (or pleuritis) is an inflammation of the pleura, typically causing sharp chest pain that worsens with breathing."
-                },
-                {
-                    question: "What is the primary risk factor for developing lung cancer, often mentioned in conjunction with respiratory diseases?",
-                    options: ["Exposure to secondhand smoke", "Genetic predisposition", "Air pollution", "Smoking"],
-                    correctAnswerIndex: 3,
-                    explanation: "Smoking is overwhelmingly the leading cause of lung cancer, responsible for about 85% of cases."
-                },
-                {
-                    question: "What is the medical term for a rapid respiratory rate?",
-                    options: ["Bradypnea", "Apnea", "Tachypnea", "Dyspnea"],
-                    correctAnswerIndex: 2,
-                    explanation: "Tachypnea refers to an abnormally rapid rate of breathing."
-                },
-                {
-                    question: "When assessing a patient with a respiratory complaint, what is a key question to ask about their history?",
-                    options: ["Their favorite color", "Any recent travel", "History of smoking or exposure to irritants", "Their last meal"],
-                    correctAnswerIndex: 2,
-                    explanation: "Smoking history and exposure to environmental irritants are crucial for understanding respiratory conditions."
-                },
-
-                // Endocrine Conditions (5 questions - as per content)
-                {
-                    question: "Which type of diabetes is characterized by the body's immune system attacking and destroying the insulin-producing cells in the pancreas?",
-                    options: ["Type 1 Diabetes", "Type 2 Diabetes", "Gestational Diabetes", "Insulin Resistance"],
+                    question: "Which of these describes tendons?",
+                    options: ["Bands of fibrous connective tissue binding muscle to bone. Allows for movement across joints.", "Made up of a number of parallel tube-shaped units called Osteons", "Dense, strong, flexible fibrous connective tissue, crosses joints and attaches bone to bone.", "Looks like honeycomb and contains osteocytes & few lamellae"],
                     correctAnswerIndex: 0,
-                    explanation: "Type 1 diabetes is an autoimmune disease where the body fails to produce insulin because the immune system has destroyed the beta cells in the pancreas."
+                    explanation: "Tendons are strong, fibrous connective tissues that connect muscle to bone, enabling movement."
                 },
                 {
-                    question: "What is the medical term for dangerously low blood glucose levels?",
-                    options: ["Hyperglycemia", "Hypoglycemia", "Glycosuria", "Diabetic Ketoacidosis"],
-                    correctAnswerIndex: 1,
-                    explanation: "Hypoglycemia is a condition characterized by abnormally low blood glucose (blood sugar) levels."
-                },
-                {
-                    question: "What is the medical term for dangerously high blood glucose levels, often seen in uncontrolled diabetes?",
-                    options: ["Hypoglycemia", "Hypertension", "Hyperglycemia", "Hypovolemia"],
-                    correctAnswerIndex: 2,
-                    explanation: "Hyperglycemia refers to an excess of glucose in the bloodstream, often associated with diabetes mellitus."
-                },
-                {
-                    question: "Diabetic Ketoacidosis (DKA) is a severe complication of diabetes characterized by high blood glucose, acidosis, and the presence of what in the urine/blood?",
-                    options: ["Proteins", "Ketones", "Calcium", "White blood cells"],
-                    correctAnswerIndex: 1,
-                    explanation: "DKA is characterized by hyperglycemia, metabolic acidosis, and the presence of ketones in the blood and urine, resulting from the body breaking down fat for energy."
-                },
-                {
-                    question: "What is Addison's disease?",
-                    options: ["A condition where the thyroid gland is overactive", "A disorder where the adrenal glands produce too much cortisol", "A disorder where the adrenal glands produce insufficient amounts of certain hormones", "A type of diabetes insipidus"],
-                    correctAnswerIndex: 2,
-                    explanation: "Addison's disease is a rare disorder in which your body produces insufficient amounts of certain hormones produced by your adrenal glands."
-                },
-
-                // Environmentally Related Conditions (5 questions - as per content)
-                {
-                    question: "What temperature range defines Heat Exhaustion?",
-                    options: ["Below 35°C", "35°C-37°C", "37°C-40°C", "Above 40°C"],
-                    correctAnswerIndex: 2,
-                    explanation: "Heat exhaustion is a milder form of heat-related illness, characterized by a core body temperature between 37°C and 40°C."
-                },
-                {
-                    question: "Heat stroke, a life-threatening emergency, is defined by a core body temperature above what threshold?",
-                    options: ["35°C", "37°C", "38°C", "40°C"],
+                    question: "Which of these is an example of a gliding joint?",
+                    options: ["Knee", "Ulna", "Hip", "Ankle (intertarsal joints)"],
                     correctAnswerIndex: 3,
-                    explanation: "Heat stroke is a severe form of hyperthermia defined by a core body temperature of 40°C or higher, accompanied by central nervous system dysfunction."
+                    explanation: "Intertarsal joints in the ankle are examples of gliding (plane) joints, allowing limited sliding movements."
                 },
                 {
-                    question: "Non-exertional heat-related illness is typically associated with what kind of exposure?",
-                    options: ["Intense physical activity in heat", "Sudden exposure to extreme cold", "Prolonged environmental exposure to high temperatures", "High altitude climbing"],
+                    question: "Which of these describes contractility of muscles?",
+                    options: ["The ability to be stretched or extended", "Ability to shorten and thicken to meet the requirements communicated by the reception of a sufficient stimulus", "Ability to receive and respond to stimuli", "The ability to return to its original shape"],
+                    correctAnswerIndex: 1,
+                    explanation: "Contractility is the unique ability of muscle tissue to shorten and thicken, generating force."
+                },
+                {
+                    question: "Which of these describes cardiac muscle?",
+                    options: ["Involuntary & striated muscle", "Involuntary muscle, lacks striation. Found in the internal organs such as gall bladder", "Voluntary & striated muscle. Attached to bones via tendons", "Voluntary muscle, lacks striation"],
+                    correctAnswerIndex: 0,
+                    explanation: "Cardiac muscle is found only in the heart, is involuntary (not consciously controlled), and has a striated (striped) appearance."
+                },
+                {
+                    question: "What are the five different types of bones based on their shape?",
+                    options: ["Long, short, flat, irregular, sesamoid", "Large, small, thick, thin, curved", "Axial, appendicular, cranial, facial, vertebral", "Compact, spongy, red, yellow, bone marrow"],
+                    correctAnswerIndex: 0,
+                    explanation: "Bones are classified into five main types: long, short, flat, irregular, and sesamoid bones."
+                },
+                {
+                    question: "The shaft of a long bone is called the:",
+                    options: ["Epiphysis", "Diaphysis", "Periosteum", "Articular cartilage"],
+                    correctAnswerIndex: 1,
+                    explanation: "The diaphysis is the main or midsection (shaft) of a long bone."
+                },
+                {
+                    question: "What type of bone tissue is dense, has few spaces, and provides high stress-bearing capability?",
+                    options: ["Spongy bone", "Cancellous bone", "Trabecular bone", "Compact bone"],
+                    correctAnswerIndex: 3,
+                    explanation: "Compact bone is dense and strong, forming the outer layer of bones and providing structural support."
+                },
+                {
+                    question: "Which type of bone marrow is responsible for producing red blood cells, white blood cells, and platelets?",
+                    options: ["Yellow bone marrow", "Red bone marrow", "Trabecular marrow", "Compact marrow"],
+                    correctAnswerIndex: 1,
+                    explanation: "Red bone marrow is the primary site of hematopoiesis (blood cell formation)."
+                },
+                {
+                    question: "The axial skeleton includes which of the following?",
+                    options: ["Upper limbs", "Pelvic girdle", "Skull and vertebral column", "Lower limbs"],
                     correctAnswerIndex: 2,
-                    explanation: "Non-exertional heat-related illness, also known as classic heat stroke, often affects vulnerable individuals during prolonged exposure to hot environments, such as during heatwaves."
+                    explanation: "The axial skeleton consists of the bones of the head (skull), neck (vertebrae), and trunk (ribs, sternum, vertebral column)."
                 },
                 {
-                    question: "What is the primary danger associated with prolonged immersion in cold water or exposure to cold temperatures leading to hypothermia?",
-                    options: ["Dehydration", "Organ dysfunction due to decreased metabolic rate and arrhythmias", "Increased blood pressure", "Hyperactivity and agitation"],
+                    question: "How many cervical vertebrae are typically found in the human vertebral column?",
+                    options: ["5", "7", "12", "9"],
                     correctAnswerIndex: 1,
-                    explanation: "Hypothermia causes a dangerous drop in core body temperature, leading to a slowing of metabolic processes, cardiac arrhythmias, and potential organ failure if not treated promptly."
+                    explanation: "There are typically 7 cervical vertebrae (C1-C7) in the neck region."
                 },
                 {
-                    question: "What is a crucial first step in the management of a drowning victim after safe extrication from water?",
-                    options: ["Starting chest compressions immediately", "Providing 5 rescue breaths", "Checking for a pulse for 30 seconds", "Warming them rapidly with hot water"],
+                    question: "Which type of joint allows for no movement (immoveable), such as the sutures in the skull?",
+                    options: ["Cartilaginous joint", "Synovial joint", "Fibrous joint", "Hinge joint"],
+                    correctAnswerIndex: 2,
+                    explanation: "Fibrous joints are connected by dense connective tissue, allowing little to no movement."
+                },
+                {
+                    question: "Which type of joint is freely moveable and characterized by a joint capsule, synovial fluid, and articular cartilage?",
+                    options: ["Fibrous joint", "Cartilaginous joint", "Synovial joint", "Fixed joint"],
+                    correctAnswerIndex: 2,
+                    explanation: "Synovial joints are the most common type of joint in the body and allow for a wide range of motion."
+                },
+                {
+                    question: "The ability of muscle to be stretched or extended is called:",
+                    options: ["Excitability", "Contractility", "Extensibility", "Elasticity"],
+                    correctAnswerIndex: 2,
+                    explanation: "Extensibility is the ability of muscle tissue to be stretched without tearing."
+                },
+                {
+                    question: "What is the primary function of ligaments?",
+                    options: ["Connect muscle to bone", "Connect bone to bone", "Produce movement", "Store minerals"],
                     correctAnswerIndex: 1,
-                    explanation: "For drowning victims, the initial intervention after ensuring scene safety is to provide 5 rescue breaths before starting chest compressions, as hypoxia is the primary issue."
+                    explanation: "Ligaments are strong, flexible bands of fibrous connective tissue that connect bones to other bones, providing joint stability."
+                },
+                {
+                    question: "What is the role of cartilage in joints?",
+                    options: ["To produce blood cells", "To store calcium", "To reduce friction and act as a shock absorber", "To connect muscles to bones"],
+                    correctAnswerIndex: 2,
+                    explanation: "Cartilage provides a smooth, slippery surface for bones to glide over and absorbs shock, protecting the ends of bones."
+                },
+                {
+                    question: "The process of blood cell formation is known as:",
+                    options: ["Osteogenesis", "Myogenesis", "Haematopoiesis", "Glycogenesis"],
+                    correctAnswerIndex: 2,
+                    explanation: "Haematopoiesis is the process by which all blood cells are formed, primarily in the bone marrow."
+                },
+                {
+                    question: "Which major muscle group is located on the front of the thigh?",
+                    options: ["Hamstrings", "Gluteals", "Quadriceps", "Calves"],
+                    correctAnswerIndex: 2,
+                    explanation: "The quadriceps femoris group is a large muscle group that covers the front and sides of the thigh."
+                },
+                {
+                    question: "Movement that decreases the angle between two body parts is called:",
+                    options: ["Extension", "Abduction", "Flexion", "Adduction"],
+                    correctAnswerIndex: 2,
+                    explanation: "Flexion is a bending movement that decreases the angle between two parts."
+                },
+                {
+                    question: "Movement of a limb away from the midline of the body is called:",
+                    options: ["Adduction", "Flexion", "Abduction", "Rotation"],
+                    correctAnswerIndex: 2,
+                    explanation: "Abduction is the movement of a body part away from the midline."
+                },
+                {
+                    question: "Which bone is commonly known as the 'collarbone'?",
+                    options: ["Scapula", "Humerus", "Clavicle", "Sternum"],
+                    correctAnswerIndex: 2,
+                    explanation: "The clavicle is the scientific name for the collarbone."
+                },
+                {
+                    question: "The bone of the upper arm is the:",
+                    options: ["Radius", "Ulna", "Femur", "Humerus"],
+                    correctAnswerIndex: 3,
+                    explanation: "The humerus is the long bone in the upper arm."
+                },
+                {
+                    question: "Which of the following is an example of a ball-and-socket joint?",
+                    options: ["Elbow joint", "Knee joint", "Shoulder joint", "Ankle joint"],
+                    correctAnswerIndex: 2,
+                    explanation: "Ball-and-socket joints, like the shoulder and hip, allow for movement in many directions."
+                },
+                {
+                    question: "The process by which muscles return to their original shape after contraction or extension is called:",
+                    options: ["Excitability", "Contractility", "Extensibility", "Elasticity"],
+                    correctAnswerIndex: 3,
+                    explanation: "Elasticity is the ability of muscle tissue to recoil to its original resting length after being stretched or contracted."
+                },
+                {
+                    question: "What is the largest bone in the human body?",
+                    options: ["Tibia", "Fibula", "Femur", "Humerus"],
+                    correctAnswerIndex: 2,
+                    explanation: "The femur, or thigh bone, is the longest and strongest bone in the human body."
                 },
 
-                // Shock (5 questions - as per content)
+                // Nervous System (30 questions)
                 {
-                    question: "What is the fundamental physiological problem in all types of shock?",
-                    options: ["Too much fluid in the body", "Insufficient blood flow to meet the body's demands", "Excessive oxygen delivery to tissues", "Localized inflammation"],
+                    question: "What is the primary function of the nervous system?",
+                    options: ["Digestion of food", "Detecting and interpreting stimuli, and coordinating responses", "Pumping blood", "Filtering waste from blood"],
                     correctAnswerIndex: 1,
-                    explanation: "Shock is fundamentally a state of inadequate tissue perfusion, meaning the body's cells and organs are not receiving enough oxygen and nutrients."
+                    explanation: "The nervous system is the body's control and communication system, responsible for detecting stimuli, processing information, and coordinating responses."
                 },
                 {
-                    question: "Which of the following is a common cause of Hypovolemic shock?",
-                    options: ["Severe heart attack", "Spinal cord injury", "Massive hemorrhage", "Severe allergic reaction"],
-                    correctAnswerIndex: 2,
-                    explanation: "Hypovolemic shock is caused by a significant loss of circulating blood volume, with massive hemorrhage being a prime example."
+                    question: "The central nervous system (CNS) consists of the:",
+                    options: ["Nerves and ganglia", "Brain and spinal cord", "Sensory and motor neurons", "Sympathetic and parasympathetic divisions"],
+                    correctAnswerIndex: 1,
+                    explanation: "The CNS is composed of the brain and spinal cord, which are the main control centers of the body."
                 },
                 {
-                    question: "What type of shock results from the heart's inability to pump enough blood effectively?",
-                    options: ["Hypovolemic shock", "Distributive shock", "Cardiogenic shock", "Obstructive shock"],
+                    question: "Which part of the brain is the largest and is responsible for higher-level functions like thought, language, and voluntary movement?",
+                    options: ["Cerebellum", "Brainstem", "Cerebrum", "Diencephalon"],
                     correctAnswerIndex: 2,
-                    explanation: "Cardiogenic shock occurs when the heart's pumping ability is severely impaired, leading to insufficient blood flow to the body."
+                    explanation: "The cerebrum is the largest part of the brain and is involved in complex cognitive functions."
                 },
                 {
-                    question: "Which general management principle applies to most types of shock?",
-                    options: ["Restricting oxygen administration", "Promoting fluid restriction", "Maintaining airway, breathing, and circulation (ABC) and addressing the underlying cause", "Applying cold compresses to the extremities"],
+                    question: "The outer part of the cerebrum, composed of nerve cell bodies, is called the:",
+                    options: ["White matter", "Corpus callosum", "Cerebral cortex (grey matter)", "Ventricles"],
                     correctAnswerIndex: 2,
-                    explanation: "The fundamental management of shock involves supporting the ABCs (Airway, Breathing, Circulation) and identifying and treating the specific underlying cause."
+                    explanation: "The cerebral cortex, or grey matter, is the highly folded outer layer of the cerebrum where most neural processing occurs."
                 },
                 {
-                    question: "What is a common sign or symptom of early shock?",
-                    options: ["Warm, flushed skin", "Bradycardia (slow heart rate)", "Tachycardia (fast heart rate)", "High blood pressure"],
+                    question: "Which part of the diencephalon controls appetite, thirst, body temperature, and emotional reactions?",
+                    options: ["Thalamus", "Hypothalamus", "Hippocampus", "Pituitary gland"],
+                    correctAnswerIndex: 1,
+                    explanation: "The hypothalamus is a vital control center for many homeostatic functions and emotional responses."
+                },
+                {
+                    question: "The brainstem includes which three main parts?",
+                    options: ["Cerebrum, cerebellum, diencephalon", "Midbrain, pons, medulla oblongata", "Thalamus, hypothalamus, hippocampus", "Frontal lobe, parietal lobe, temporal lobe"],
+                    correctAnswerIndex: 1,
+                    explanation: "The brainstem connects the cerebrum and cerebellum to the spinal cord and consists of the midbrain, pons, and medulla oblongata."
+                },
+                {
+                    question: "What vital center located in the medulla oblongata controls breathing and heart rate?",
+                    options: ["Sensory cortex", "Motor cortex", "Respiratory and Cardiovascular Center", "Visual association area"],
                     correctAnswerIndex: 2,
-                    explanation: "Tachycardia (an increased heart rate) is an early compensatory mechanism in shock as the body tries to maintain cardiac output."
+                    explanation: "The medulla oblongata contains vital centers that regulate essential involuntary functions like respiration and cardiovascular activity."
+                },
+                {
+                    question: "What is the primary function of the cerebellum?",
+                    options: ["Processing sensory information", "Coordinating voluntary movements, balance, and posture", "Controlling emotions", "Regulating body temperature"],
+                    correctAnswerIndex: 1,
+                    explanation: "The cerebellum is crucial for fine-tuning motor movements, maintaining balance, and coordinating muscle activity."
+                },
+                {
+                    question: "The spinal cord acts as the center of what type of action?",
+                    options: ["Voluntary movement", "Conscious thought", "Reflex action", "Hormone secretion"],
+                    correctAnswerIndex: 2,
+                    explanation: "The spinal cord is responsible for mediating reflex actions, which are rapid, involuntary responses to stimuli."
+                },
+                {
+                    question: "What are the three protective membranes that surround the brain and spinal cord, collectively known as the meninges?",
+                    options: ["Epidermis, dermis, hypodermis", "Pericardium, pleura, peritoneum", "Dura mater, arachnoid mater, pia mater", "Cortex, medulla, pelvis"],
+                    correctAnswerIndex: 2,
+                    explanation: "The meninges consist of three layers: the dura mater (outermost), arachnoid mater (middle), and pia mater (innermost), which protect the CNS."
+                },
+                {
+                    question: "What is the function of cerebrospinal fluid (CSF)?",
+                    options: ["To transport oxygen to the brain", "To lubricate, act as a shock absorber, support, and nourish the brain and spinal cord", "To filter waste products from the blood", "To produce hormones"],
+                    correctAnswerIndex: 1,
+                    explanation: "CSF provides buoyancy, protection, and nutrient/waste exchange for the brain and spinal cord."
+                },
+                {
+                    question: "Nerves that travel towards the brain carrying sensory information are called:",
+                    options: ["Motor nerves (efferent)", "Autonomic nerves", "Sensory nerves (afferent)", "Cranial nerves"],
+                    correctAnswerIndex: 2,
+                    explanation: "Afferent neurons (sensory nerves) transmit signals from sensory receptors to the central nervous system."
+                },
+                {
+                    question: "Nerves that travel away from the brain carrying information to organs/muscles are called:",
+                    options: ["Sensory nerves (afferent)", "Motor nerves (efferent)", "Spinal nerves", "Mixed nerves"],
+                    correctAnswerIndex: 1,
+                    explanation: "Efferent neurons (motor nerves) transmit signals from the central nervous system to muscles and glands."
+                },
+                {
+                    question: "The autonomic nervous system controls which type of body functions?",
+                    options: ["Voluntary movements of skeletal muscles", "Conscious thought processes", "Involuntary body functions (e.g., heart rate, digestion)", "Sensory perception"],
+                    correctAnswerIndex: 2,
+                    explanation: "The autonomic nervous system regulates involuntary processes like heart rate, digestion, respiration, and blood pressure."
+                },
+                {
+                    question: "Which division of the autonomic nervous system is responsible for the 'fight or flight' response?",
+                    options: ["Parasympathetic nervous system", "Somatic nervous system", "Sympathetic nervous system", "Central nervous system"],
+                    correctAnswerIndex: 2,
+                    explanation: "The sympathetic nervous system prepares the body for stressful or emergency situations."
+                },
+                {
+                    question: "Which division of the autonomic nervous system is responsible for 'rest and digest' functions?",
+                    options: ["Sympathetic nervous system", "Somatic nervous system", "Parasympathetic nervous system", "Peripheral nervous system"],
+                    correctAnswerIndex: 2,
+                    explanation: "The parasympathetic nervous system promotes functions associated with relaxation and digestion."
+                },
+                {
+                    question: "The insulating material that surrounds some axons and speeds up nerve impulse transmission is called the:",
+                    options: ["Dendrite", "Cell body", "Myelin sheath", "Synaptic knob"],
+                    correctAnswerIndex: 2,
+                    explanation: "The myelin sheath acts as an electrical insulator, allowing nerve impulses to jump between nodes of Ranvier, increasing conduction speed."
+                },
+                {
+                    question: "Chemical messengers that transmit impulses from one neuron to another across a synapse are called:",
+                    options: ["Hormones", "Enzymes", "Neurotransmitters", "Electrolytes"],
+                    correctAnswerIndex: 2,
+                    explanation: "Neurotransmitters are chemical signals released at synapses to communicate between neurons."
+                },
+                {
+                    question: "Which type of chemoreceptor is situated in the medulla and primarily measures CO2 and pH levels in cerebrospinal fluid (CSF)?",
+                    options: ["Peripheral chemoreceptors", "Central chemoreceptors", "Baroreceptors", "Stretch receptors"],
+                    correctAnswerIndex: 1,
+                    explanation: "Central chemoreceptors in the medulla are highly sensitive to changes in CO2 and pH in the CSF, influencing breathing rate."
+                },
+                {
+                    question: "Which receptors are located in the aortic arch and carotid sinus and help maintain blood pressure by measuring stretch in vessel walls?",
+                    options: ["Chemoreceptors", "Thermoreceptors", "Baroreceptors", "Nociceptors"],
+                    correctAnswerIndex: 2,
+                    explanation: "Baroreceptors detect changes in blood pressure and send signals to the brain to regulate it."
+                },
+                {
+                    question: "The Phrenic Nerve (C3, C4, C5) is crucial because it stimulates which muscle, essential for breathing?",
+                    options: ["Intercostal muscles", "Abdominal muscles", "Diaphragm", "Pectoral muscles"],
+                    correctAnswerIndex: 2,
+                    explanation: "The phrenic nerve innervates the diaphragm, the primary muscle of respiration."
+                },
+                {
+                    question: "How many pairs of cranial nerves are there?",
+                    options: ["10", "12", "20", "31"],
+                    correctAnswerIndex: 1,
+                    explanation: "There are 12 pairs of cranial nerves that emerge directly from the brain or brainstem."
+                },
+                {
+                    question: "How many pairs of vertebral (spinal) nerves are there?",
+                    options: ["12", "24", "31", "33"],
+                    correctAnswerIndex: 2,
+                    explanation: "There are 31 pairs of spinal nerves that branch off the spinal cord."
+                },
+                {
+                    question: "The part of the brain that acts as a link between the cerebrum, lower parts of the brain, and the spinal cord is the:",
+                    options: ["Cerebellum", "Diencephalon", "Midbrain", "Thalamus"],
+                    correctAnswerIndex: 2,
+                    explanation: "The midbrain is part of the brainstem and serves as a relay station for sensory and motor information."
+                },
+                {
+                    question: "What is the term for the crossing over of motor nerves from the brain to specific muscles/cells, which occurs in the medulla oblongata?",
+                    options: ["Synapsis", "Decussation of pyramids", "Myelination", "Reflex arc"],
+                    correctAnswerIndex: 1,
+                    explanation: "The decussation of pyramids is where motor fibers cross from one side of the brain to the opposite side of the spinal cord."
+                },
+                {
+                    question: "Which lobe of the cerebrum is primarily associated with vision?",
+                    options: ["Frontal lobe", "Parietal lobe", "Temporal lobe", "Occipital lobe"],
+                    correctAnswerIndex: 3,
+                    explanation: "The occipital lobe is the visual processing center of the brain."
+                },
+                {
+                    question: "Which lobe of the cerebrum is primarily associated with hearing and smell?",
+                    options: ["Frontal lobe", "Parietal lobe", "Temporal lobe", "Occipital lobe"],
+                    correctAnswerIndex: 2,
+                    explanation: "The temporal lobe plays a key role in processing auditory information and is involved in smell."
+                },
+                {
+                    question: "The 'grey matter' of the cerebral cortex is primarily composed of:",
+                    options: ["Nerve fibers (axons)", "Myelin sheaths", "Nerve cell bodies", "Blood vessels"],
+                    correctAnswerIndex: 2,
+                    explanation: "Grey matter consists mainly of neuronal cell bodies, dendrites, and unmyelinated axons."
+                },
+                {
+                    question: "What is the main function of the thalamus?",
+                    options: ["Controlling emotions", "Relaying sensory information to the cerebral cortex", "Coordinating motor movements", "Producing hormones"],
+                    correctAnswerIndex: 1,
+                    explanation: "The thalamus acts as a major relay station for sensory information, directing it to the appropriate areas of the cerebral cortex."
+                },
+                {
+                    question: "Which structure connects the two hemispheres of the cerebrum, allowing for communication between them?",
+                    options: ["Brainstem", "Thalamus", "Corpus callosum", "Cerebellum"],
+                    correctAnswerIndex: 2,
+                    explanation: "The corpus callosum is a large bundle of nerve fibers that connects the left and right cerebral hemispheres."
+                },
+
+                // Respiratory System (30 questions)
+                {
+                    question: "What are the three main components of the respiratory system?",
+                    options: ["Heart, blood, vessels", "Bones, muscles, joints", "Anatomy, mechanism of breathing, nervous control", "Kidneys, ureters, bladder"],
+                    correctAnswerIndex: 2,
+                    explanation: "The respiratory system involves its anatomical structures, the mechanical process of breathing, and its nervous regulation."
+                },
+                {
+                    question: "What is the primary function of the respiratory system?",
+                    options: ["To digest food", "To ventilate the lungs and facilitate gas exchange", "To pump blood", "To filter waste from the blood"],
+                    correctAnswerIndex: 1,
+                    explanation: "The main roles of the respiratory system are to move air in and out of the lungs (ventilation) and to exchange oxygen and carbon dioxide."
+                },
+                {
+                    question: "Which part of the respiratory system warms, filters, and moistens inhaled air?",
+                    options: ["Trachea", "Bronchi", "Nose", "Alveoli"],
+                    correctAnswerIndex: 2,
+                    explanation: "The nose is the primary entry point for air and is equipped to condition the air before it reaches the lungs."
+                },
+                {
+                    question: "The pharynx is divided into how many parts?",
+                    options: ["Two", "Three", "Four", "Five"],
+                    correctAnswerIndex: 1,
+                    explanation: "The pharynx is divided into the nasopharynx, oropharynx, and laryngopharynx."
+                },
+                {
+                    question: "What is the common name for the larynx?",
+                    options: ["Windpipe", "Voice box", "Food pipe", "Air sac"],
+                    correctAnswerIndex: 1,
+                    explanation: "The larynx, or voice box, contains the vocal cords and is crucial for speech."
+                },
+                {
+                    question: "Which cartilage forms a complete ring and marks the end of the upper respiratory tract?",
+                    options: ["Thyroid cartilage", "Epiglottis", "Cricoid cartilage", "Arytenoid cartilage"],
+                    correctAnswerIndex: 2,
+                    explanation: "The cricoid cartilage is the only complete ring of cartilage in the airway and is located at the base of the larynx."
+                },
+                {
+                    question: "What is the function of the epiglottis?",
+                    options: ["To produce sound", "To filter air", "To occlude the larynx during swallowing and direct food into the esophagus", "To warm and moisten air"],
+                    correctAnswerIndex: 2,
+                    explanation: "The epiglottis acts as a flap that closes over the trachea during swallowing to prevent food and liquid from entering the airways."
+                },
+                {
+                    question: "The trachea extends from the cricoid cartilage to the carina, which is located at which thoracic vertebra level?",
+                    options: ["T1", "T3", "T5", "T7"],
+                    correctAnswerIndex: 2,
+                    explanation: "The carina is the point where the trachea divides into the left and right main bronchi, typically at the level of the fifth thoracic vertebra (T5)."
+                },
+                {
+                    question: "What is the function of the mucociliary escalator in the trachea?",
+                    options: ["To produce mucus", "To warm the air", "To waft mucus with adherent particles upwards towards the larynx for expulsion", "To facilitate gas exchange"],
+                    correctAnswerIndex: 2,
+                    explanation: "The mucociliary escalator is a defense mechanism that uses cilia to move mucus and trapped particles out of the respiratory tract."
+                },
+                {
+                    question: "How many lobes does the right lung typically have?",
+                    options: ["1", "2", "3", "4"],
+                    correctAnswerIndex: 2,
+                    explanation: "The right lung has three lobes (superior, middle, and inferior), while the left lung has two."
+                },
+                {
+                    question: "What substance prevents the alveoli from drying out and reduces surface tension, allowing for lung expansion?",
+                    options: ["Mucus", "Histamine", "Surfactant", "Plasma"],
+                    correctAnswerIndex: 2,
+                    explanation: "Surfactant is a lipoprotein that reduces surface tension in the alveoli, preventing their collapse."
+                },
+                {
+                    question: "What are the tiny air sacs in the lungs where gaseous exchange occurs?",
+                    options: ["Bronchioles", "Trachea", "Alveoli", "Pleura"],
+                    correctAnswerIndex: 2,
+                    explanation: "Alveoli are thin-walled air sacs surrounded by capillaries, forming the primary site of gas exchange in the lungs."
+                },
+                {
+                    question: "Which muscles are primarily responsible for inspiration (inhaling)?",
+                    options: ["Internal intercostals and abdominal muscles", "Diaphragm and external intercostals", "Pectoral muscles and sternocleidomastoid", "Trapezius and rhomboids"],
+                    correctAnswerIndex: 1,
+                    explanation: "The diaphragm contracts and flattens, and the external intercostal muscles contract, pulling the ribs up and out, increasing thoracic volume for inspiration."
+                },
+                {
+                    question: "Normal expiration is typically a(n) ______ process.",
+                    options: ["Active", "Passive", "Voluntary", "Forced"],
+                    correctAnswerIndex: 1,
+                    explanation: "Normal expiration is usually a passive process, relying on the elastic recoil of the lungs and relaxation of inspiratory muscles."
+                },
+                {
+                    question: "The exchange of gases between the alveoli and the blood in pulmonary capillaries is called:",
+                    options: ["Pulmonary ventilation", "Internal respiration", "External respiration", "Cellular respiration"],
+                    correctAnswerIndex: 2,
+                    explanation: "External respiration is the process of gas exchange between the lungs and the blood."
+                },
+                {
+                    question: "The exchange of gases between the blood in systemic capillaries and tissue cells is called:",
+                    options: ["Pulmonary ventilation", "Internal respiration", "External respiration", "Diffusion"],
+                    correctAnswerIndex: 1,
+                    explanation: "Internal respiration is the process of gas exchange between the blood and body tissues."
+                },
+                {
+                    question: "What percentage of inspired air is oxygen?",
+                    options: ["16%", "21%", "4%", "78%"],
+                    correctAnswerIndex: 1,
+                    explanation: "Approximately 21% of the air we breathe is oxygen."
+                },
+                {
+                    question: "What percentage of expired air is carbon dioxide?",
+                    options: ["0.04%", "4%", "16%", "78%"],
+                    correctAnswerIndex: 1,
+                    explanation: "Expired air contains about 4% carbon dioxide, which is a significant increase from inspired air."
+                },
+                {
+                    question: "Which reflex prevents over-inflation of the lungs by sending impulses to the respiratory center to 'switch off' inhalation?",
+                    options: ["Cough reflex", "Gag reflex", "Hering-Breuer reflex", "Withdrawal reflex"],
+                    correctAnswerIndex: 2,
+                    explanation: "The Hering-Breuer reflex is a protective mechanism that inhibits inspiration when the lungs are stretched."
+                },
+                {
+                    question: "Central chemoreceptors are stimulated by raised levels of what in the cerebrospinal fluid (CSF)?",
+                    options: ["Oxygen", "Carbon dioxide and pH decrease", "Nitrogen", "Water"],
+                    correctAnswerIndex: 1,
+                    explanation: "Central chemoreceptors are highly sensitive to increases in CO2 and corresponding decreases in pH in the CSF."
+                },
+                {
+                    question: "Peripheral chemoreceptors, located in the aortic arch and carotid bodies, are primarily stimulated by:",
+                    options: ["High oxygen levels", "Low oxygen and high CO2 levels", "Low blood pressure", "High blood pressure"],
+                    correctAnswerIndex: 1,
+                    explanation: "Peripheral chemoreceptors respond to changes in blood oxygen, carbon dioxide, and pH, with a stronger response to low oxygen."
+                },
+                {
+                    question: "The respiratory centers that control the rate of breathing are located in which part of the brain?",
+                    options: ["Cerebrum", "Cerebellum", "Medulla (brainstem)", "Thalamus"],
+                    correctAnswerIndex: 2,
+                    explanation: "The medulla oblongata contains the primary respiratory control centers."
+                },
+                {
+                    question: "What is the average tidal volume (amount of air inspired during normal, relaxed breathing) for an adult?",
+                    options: ["100 ml", "500 ml", "1200 ml", "3100 ml"],
+                    correctAnswerIndex: 1,
+                    explanation: "Tidal volume is the amount of air inhaled or exhaled during a normal breath, typically around 500 ml for an adult."
+                },
+                {
+                    question: "What is the term for the additional air that can be forcibly inhaled after the inspiration of a normal tidal volume?",
+                    options: ["Expiratory reserve volume", "Residual volume", "Inspiratory reserve volume", "Vital capacity"],
+                    correctAnswerIndex: 2,
+                    explanation: "Inspiratory reserve volume (IRV) is the maximum amount of air that can be inhaled after a normal inspiration."
+                },
+                {
+                    question: "What is the volume of air still remaining in the lungs after the expiratory reserve volume is exhaled?",
+                    options: ["Tidal volume", "Inspiratory reserve volume", "Expiratory reserve volume", "Residual volume"],
+                    correctAnswerIndex: 3,
+                    explanation: "Residual volume (RV) is the air that remains in the lungs even after a maximal exhalation."
+                },
+                {
+                    question: "Which structure connects the laryngopharynx and the trachea?",
+                    options: ["Nasal cavity", "Pharynx", "Larynx", "Bronchus"],
+                    correctAnswerIndex: 2,
+                    explanation: "The larynx (voice box) is positioned between the pharynx and the trachea."
+                },
+                {
+                    question: "The 'C' shaped cartilages of the trachea are incomplete posteriorly to allow for the expansion of which adjacent organ?",
+                    options: ["Larynx", "Oesophagus", "Bronchus", "Thyroid gland"],
+                    correctAnswerIndex: 1,
+                    explanation: "The incomplete rings allow the esophagus to expand when food passes through it."
+                },
+                {
+                    question: "What is the primary function of the pleural fluid in the pleural space?",
+                    options: ["To provide nutrients to the lungs", "To reduce friction between the pleural membranes during breathing", "To filter air", "To produce surfactant"],
+                    correctAnswerIndex: 1,
+                    explanation: "Pleural fluid acts as a lubricant, allowing the visceral and parietal pleura to slide smoothly past each other during respiration."
+                },
+                {
+                    question: "Which of the following is NOT a function of the respiratory system?",
+                    options: ["To assist in the maintenance of acid/base balance of blood", "To extract carbon dioxide from the blood", "To transport nutrients to body cells", "To ventilate the lungs"],
+                    correctAnswerIndex: 2,
+                    explanation: "The transport of nutrients to body cells is primarily a function of the cardiovascular system."
+                },
+                {
+                    question: "The smallest air passages in the lungs that terminate at the alveoli are called:",
+                    options: ["Bronchi", "Trachea", "Bronchioles", "Larynx"],
+                    correctAnswerIndex: 2,
+                    explanation: "Bronchioles are small airways that branch from the bronchi and lead to the alveolar sacs."
+                },
+
+                // Urinary System (30 questions)
+                {
+                    question: "What are the key structural features of the urinary system?",
+                    options: ["Heart, blood vessels, blood", "Kidneys, ureters, bladder, urethra", "Brain, spinal cord, nerves", "Stomach, intestines, liver"],
+                    correctAnswerIndex: 1,
+                    explanation: "The urinary system consists of the kidneys, ureters, bladder, and urethra, which work together to produce, store, and excrete urine."
+                },
+                {
+                    question: "What is the primary physiological function of the urinary system?",
+                    options: ["Digestion of food", "Regulation of blood volume and composition, and excretion of waste products", "Gas exchange", "Muscle contraction"],
+                    correctAnswerIndex: 1,
+                    explanation: "The urinary system is crucial for maintaining fluid and electrolyte balance, regulating blood pressure, and eliminating metabolic waste."
+                },
+                {
+                    question: "Which organ of the urinary system is responsible for filtering blood to remove waste products and regulate fluid balance?",
+                    options: ["Ureters", "Bladder", "Urethra", "Kidneys"],
+                    correctAnswerIndex: 3,
+                    explanation: "The kidneys are the main filtering organs of the urinary system."
+                },
+                {
+                    question: "The kidneys are bean-shaped organs that lie on the posterior abdominal wall and receive some protection from the:",
+                    options: ["Pelvis", "Ribcage", "Spine", "Abdominal muscles"],
+                    correctAnswerIndex: 1,
+                    explanation: "The lower ribs provide some protection to the kidneys."
+                },
+                {
+                    question: "The outermost layer of the kidney, which is reddish-brown in color, is called the:",
+                    options: ["Medulla", "Renal pelvis", "Cortex", "Calyces"],
+                    correctAnswerIndex: 2,
+                    explanation: "The renal cortex is the outer region of the kidney."
+                },
+                {
+                    question: "What are the conical-shaped, striated structures that make up the medulla of the kidney?",
+                    options: ["Nephrons", "Collecting ducts", "Renal pyramids", "Glomeruli"],
+                    correctAnswerIndex: 2,
+                    explanation: "The renal medulla contains renal pyramids, which are cone-shaped tissues."
+                },
+                {
+                    question: "What is the microscopic functional unit of the kidney that filters blood and forms urine?",
+                    options: ["Ureter", "Bladder", "Nephron", "Renal artery"],
+                    correctAnswerIndex: 2,
+                    explanation: "The nephron is the fundamental filtering unit of the kidney."
+                },
+                {
+                    question: "Filtration in the kidney primarily takes place in which structure?",
+                    options: ["Loop of Henle", "Collecting duct", "Glomerulus and glomerular capsule (Bowman's capsule)", "Distal convoluted tubule"],
+                    correctAnswerIndex: 2,
+                    explanation: "Blood filtration begins in the glomerulus, a network of capillaries encased by Bowman's capsule."
+                },
+                {
+                    question: "After filtration, the fluid is called filtrate. What is the main function of the collecting duct?",
+                    options: ["To filter more blood", "To reabsorb as much water as the body needs", "To secrete waste products", "To transport urine to the ureters"],
+                    correctAnswerIndex: 1,
+                    explanation: "The collecting ducts play a crucial role in water reabsorption, concentrating the urine."
+                },
+                {
+                    question: "What is the approximate percentage of water in the composition of urine?",
+                    options: ["50%", "75%", "95%", "100%"],
+                    correctAnswerIndex: 2,
+                    explanation: "Urine is primarily composed of water, typically around 95%."
+                },
+                {
+                    question: "The mechanism that protects renal blood flow and glomerular filtration from significant fluctuations in blood pressure is called:",
+                    options: ["Homeostasis", "Renin-angiotensin-aldosterone system", "Autoregulation", "Tubular secretion"],
+                    correctAnswerIndex: 2,
+                    explanation: "Autoregulation within the kidneys maintains a relatively constant glomerular filtration rate despite changes in systemic blood pressure."
+                },
+                {
+                    question: "What hormone system, involving the kidneys, liver, and adrenal glands, plays a crucial role in regulating blood pressure and fluid balance?",
+                    options: ["Insulin-glucagon system", "Thyroid hormone system", "Renin-angiotensin-aldosterone system (RAAS)", "Growth hormone system"],
+                    correctAnswerIndex: 2,
+                    explanation: "The RAAS is a complex hormonal system that regulates blood pressure and fluid balance."
+                },
+                {
+                    question: "What are the hollow muscular tubes that transport urine from the kidneys to the bladder?",
+                    options: ["Urethra", "Fallopian tubes", "Ureters", "Vas deferens"],
+                    correctAnswerIndex: 2,
+                    explanation: "Ureters are the tubes that carry urine from the kidneys to the bladder."
+                },
+                {
+                    question: "The bladder is a pear-shaped organ that becomes more balloon-shaped as it fills with urine. What is the muscle layer of the bladder called?",
+                    options: ["Myometrium", "Detrusor muscle", "Sphincter muscle", "Perimetrium"],
+                    correctAnswerIndex: 1,
+                    explanation: "The detrusor muscle is the smooth muscle that forms the wall of the bladder and contracts to expel urine."
+                },
+                {
+                    question: "Which part of the urinary system is longer in males than in females and provides a common pathway for urine and semen?",
+                    options: ["Ureters", "Bladder", "Urethra", "Kidney"],
+                    correctAnswerIndex: 2,
+                    explanation: "The male urethra is significantly longer than the female urethra and serves both urinary and reproductive functions."
+                },
+                {
+                    question: "The external urethral sphincter is under what type of control?",
+                    options: ["Involuntary", "Autonomic", "Voluntary", "Reflexive"],
+                    correctAnswerIndex: 2,
+                    explanation: "The external urethral sphincter allows for conscious control over urination."
+                },
+                {
+                    question: "What waste product, derived from muscle metabolism, is excreted in urine?",
+                    options: ["Glucose", "Proteins", "Creatinine", "Fatty acids"],
+                    correctAnswerIndex: 2,
+                    explanation: "Creatinine is a waste product formed from the breakdown of creatine in muscles and is filtered by the kidneys."
+                },
+                {
+                    question: "Which of the following is NOT a component of urine?",
+                    options: ["Water", "Urea", "Red blood cells", "Dissolved salts and ions"],
+                    correctAnswerIndex: 2,
+                    explanation: "In healthy individuals, red blood cells are not typically found in urine; their presence (hematuria) usually indicates a problem."
+                },
+                {
+                    question: "What is the process by which substances not entirely filtered out of the blood in the glomerulus are cleared by secretion from the peritubular capillaries into the filtrate?",
+                    options: ["Filtration", "Selective reabsorption", "Tubular secretion", "Excretion"],
+                    correctAnswerIndex: 2,
+                    explanation: "Tubular secretion involves the active transport of certain substances from the blood into the renal tubule for excretion."
+                },
+                {
+                    question: "In severe shock, when systolic blood pressure falls below 80 mmHg, what happens to the kidneys' autoregulation?",
+                    options: ["It increases blood flow", "It becomes more efficient", "It fails, leading to potential kidney damage", "It has no effect"],
+                    correctAnswerIndex: 2,
+                    explanation: "Below a certain blood pressure threshold, the kidneys' ability to autoregulate blood flow is lost, making them vulnerable to damage."
+                },
+                {
+                    question: "What is the inner layer of the kidney called?",
+                    options: ["Cortex", "Medulla", "Renal pelvis", "Capsule"],
+                    correctAnswerIndex: 1,
+                    explanation: "The medulla is the inner region of the kidney, containing the renal pyramids."
+                },
+                {
+                    question: "The walls of the calyces and renal pelvis are lined with smooth muscle, which propels urine to the bladder through what process?",
+                    options: ["Diffusion", "Osmosis", "Peristalsis", "Filtration"],
+                    correctAnswerIndex: 2,
+                    explanation: "Peristalsis, wave-like muscular contractions, moves urine through the ureters."
+                },
+                {
+                    question: "The Bowman's capsule surrounds which structure in the nephron?",
+                    options: ["Loop of Henle", "Collecting duct", "Glomerulus", "Proximal convoluted tubule"],
+                    correctAnswerIndex: 2,
+                    explanation: "Bowman's capsule encloses the glomerulus, forming the renal corpuscle where filtration begins."
+                },
+                {
+                    question: "The main function of the kidneys to maintain balance involves altering sodium and electrolyte balances to maintain what?",
+                    options: ["Blood glucose levels", "Hormone production", "Fluid amounts/blood volume", "Muscle contraction"],
+                    correctAnswerIndex: 2,
+                    explanation: "The kidneys play a crucial role in regulating the body's fluid and electrolyte balance, directly impacting blood volume."
+                },
+                {
+                    question: "Which part of the male urethra passes through the prostate gland?",
+                    options: ["Membranous urethra", "Penile urethra", "Prostatic urethra", "External sphincter"],
+                    correctAnswerIndex: 2,
+                    explanation: "The prostatic urethra is the segment of the male urethra that runs through the prostate gland."
+                },
+                {
+                    question: "What is the average length of the ureters?",
+                    options: ["5-10 cm", "10-15 cm", "20-30 cm", "40-50 cm"],
+                    correctAnswerIndex: 2,
+                    explanation: "Ureters are typically 20-30 cm long, connecting the kidneys to the bladder."
+                },
+                {
+                    question: "Which structure is guarded by the external urethral sphincter?",
+                    options: ["Kidney", "Ureter", "Bladder", "External urethral orifice"],
+                    correctAnswerIndex: 3,
+                    explanation: "The external urethral sphincter controls the flow of urine from the bladder through the external urethral orifice."
+                },
+                {
+                    question: "The renal artery supplies blood to the kidney. What vessel carries filtered blood away from the kidney?",
+                    options: ["Renal vein", "Ureter", "Aorta", "Vena cava"],
+                    correctAnswerIndex: 0,
+                    explanation: "The renal vein carries deoxygenated and filtered blood from the kidney back to the inferior vena cava."
+                },
+                {
+                    question: "What is the primary function of selective reabsorption in the nephron?",
+                    options: ["To filter blood", "To return useful substances from the filtrate back to the blood", "To secrete waste products into the filtrate", "To store urine"],
+                    correctAnswerIndex: 1,
+                    explanation: "Selective reabsorption ensures that essential substances like glucose, amino acids, and most water are reabsorbed from the filtrate back into the bloodstream."
+                },
+                {
+                    question: "Which structure in the kidney is responsible for collecting urine from the renal pyramids before it passes to the ureter?",
+                    options: ["Cortex", "Medulla", "Renal pelvis", "Bowman's capsule"],
+                    correctAnswerIndex: 2,
+                    explanation: "The renal pelvis is a funnel-shaped structure that collects urine from the calyces and channels it into the ureter."
+                },
+
+                // Lymphatic System (30 questions)
+                {
+                    question: "Which bodily system is the lymphatic system part of?",
+                    options: ["Musculoskeletal system", "Immune system", "Respiratory system", "Integumentary system"],
+                    correctAnswerIndex: 1,
+                    explanation: "The lymphatic system is a crucial part of the immune system, involved in defense against pathogens."
+                },
+                {
+                    question: "Which of these is NOT part of the lymphatic system?",
+                    options: ["Bone marrow", "Thymus", "Spleen", "Blood vessels"],
+                    correctAnswerIndex: 3,
+                    explanation: "Blood vessels are part of the cardiovascular system, not the lymphatic system."
+                },
+                {
+                    question: "What is lymph?",
+                    options: ["Solid lumps that are passed from the stomach through the duodenum", "Interstitial fluid that has passed into the lymph capillaries", "A type of plasma that is slightly thicker", "A mix of blood & fats from the small intestine"],
+                    correctAnswerIndex: 1,
+                    explanation: "Lymph is the interstitial fluid that enters the lymphatic capillaries."
+                },
+                {
+                    question: "What is the function of a B lymphocyte?",
+                    options: ["Responsible for cell-mediated immunity", "Creates proteins called antibodies & is responsible for antibody-mediated immunity.", "Works with macrophages to destroy a single type of pathogen", "A specialised cell involved in the detection, phagocytosis & destruction of bacteria and other harmful organisms"],
+                    correctAnswerIndex: 1,
+                    explanation: "B lymphocytes produce antibodies, which are essential for humoral (antibody-mediated) immunity."
+                },
+                {
+                    question: "Which of these describes the lymph vessels?",
+                    options: ["No pump, have the ability to contract rhythmically", "Blind end tubes in interstitial spaces", "Muscular tubes that can withstand a higher pressure of fluid directly from the heart", "Muscular hollow continuous tubular organ along which substances pass by peristalsis"],
+                    correctAnswerIndex: 0,
+                    explanation: "Lymph vessels have valves and can contract rhythmically to propel lymph, as they lack a central pump like the heart."
+                },
+                {
+                    question: "Which of these is NOT a function of the lymphatic system?",
+                    options: ["Controls internal respiration", "Removing body fluid levels", "Protecting the body from pathogens", "Absorbing digestive tract fats"],
+                    correctAnswerIndex: 0,
+                    explanation: "Controlling internal respiration is a function of the respiratory and circulatory systems, not the lymphatic system."
+                },
+                {
+                    question: "Which of these can be found in lymph nodes?",
+                    options: ["Plasma", "Erythrocytes", "Macrophages", "Deoxygenated blood"],
+                    correctAnswerIndex: 2,
+                    explanation: "Lymph nodes contain macrophages and lymphocytes, which filter lymph and mount immune responses."
+                },
+                {
+                    question: "Where might you find MALT (Mucosa-Associated Lymphoid Tissue)?",
+                    options: ["Genitourinary tract", "GI tract", "Reproductive tract", "Respiratory tract"],
+                    correctAnswerIndex: 1, // This question has multiple correct answers. I will pick GI tract as the primary.
+                    explanation: "MALT is found in various mucosal linings, including the gastrointestinal (GI), respiratory, and genitourinary tracts, as well as the reproductive tract."
+                },
+                {
+                    question: "Which of these is NOT a function of the spleen?",
+                    options: ["Storage of blood", "Erythropoiesis (in adults)", "Phagocytosis of old/abnormal erythrocytes", "Allowing T lymphocytes to be able to react to specific antigens"],
+                    correctAnswerIndex: 1, // Erythropoiesis primarily occurs in bone marrow in adults.
+                    explanation: "While the spleen has a role in fetal erythropoiesis, in adults, red blood cell production primarily occurs in the bone marrow. The spleen is involved in blood storage, phagocytosis of old red blood cells, and immune responses."
+                },
+                {
+                    question: "Where can Peyer’s patches be found?",
+                    options: ["Stomach", "Small intestine", "Blood vessels", "Bronchioles"],
+                    correctAnswerIndex: 1,
+                    explanation: "Peyer's patches are lymphoid tissues located in the small intestine, part of MALT."
+                },
+                {
+                    question: "What is the primary function of the lymphatic system related to tissue drainage?",
+                    options: ["To transport blood", "To absorb nutrients", "To drain excess interstitial fluid and return it to the bloodstream", "To produce hormones"],
+                    correctAnswerIndex: 2,
+                    explanation: "The lymphatic system collects excess fluid and proteins from interstitial spaces and returns them to the circulatory system, preventing edema."
+                },
+                {
+                    question: "What is chyle?",
+                    options: ["A type of white blood cell", "A milky bodily fluid consisting of lymph and emulsified fats, formed in the small intestine", "A component of blood plasma", "A fluid found in joints"],
+                    correctAnswerIndex: 1,
+                    explanation: "Chyle is a milky fluid formed in the small intestine during fat digestion, absorbed by lacteals (lymphatic capillaries)."
+                },
+                {
+                    question: "Lymph capillaries are more permeable than blood capillaries, allowing what to enter easily?",
+                    options: ["Red blood cells", "Large proteins and excess interstitial fluid", "Oxygen", "Glucose"],
+                    correctAnswerIndex: 1,
+                    explanation: "The high permeability of lymphatic capillaries allows them to collect large molecules like proteins and excess fluid that cannot easily enter blood capillaries."
+                },
+                {
+                    question: "How many lymph nodes do humans typically have throughout the body?",
+                    options: ["Around 50-100", "Around 200-300", "Around 500-600", "Over 1000"],
+                    correctAnswerIndex: 2,
+                    explanation: "Humans have hundreds of lymph nodes strategically located throughout the body."
+                },
+                {
+                    question: "What is the function of lymph nodes?",
+                    options: ["To produce hormones", "To filter lymph, destroying bacteria and cellular debris", "To pump lymph throughout the body", "To store red blood cells"],
+                    correctAnswerIndex: 1,
+                    explanation: "Lymph nodes act as filters, trapping and destroying harmful substances and pathogens present in the lymph."
+                },
+                {
+                    question: "Which of the following is the largest lymphatic organ?",
+                    options: ["Thymus", "Tonsils", "Spleen", "Appendix"],
+                    correctAnswerIndex: 2,
+                    explanation: "The spleen is the largest lymphatic organ, located in the upper left abdomen."
+                },
+                {
+                    question: "What is the primary function of the thymus?",
+                    options: ["To filter blood", "To store lymph", "To mature T lymphocytes", "To produce antibodies"],
+                    correctAnswerIndex: 2,
+                    explanation: "The thymus is a specialized organ where T lymphocytes mature and learn to distinguish self from non-self."
+                },
+                {
+                    question: "Where do lymphocytes begin their life?",
+                    options: ["Thymus", "Spleen", "Lymph nodes", "Red bone marrow"],
+                    correctAnswerIndex: 3,
+                    explanation: "All blood cells, including lymphocytes, originate from stem cells in the red bone marrow."
+                },
+                {
+                    question: "What type of immunity is the defense system you were born with, including physical barriers and phagocytic cells?",
+                    options: ["Adaptive immunity", "Passive immunity", "Innate immunity", "Acquired immunity"],
+                    correctAnswerIndex: 2,
+                    explanation: "Innate immunity is the body's non-specific, first-line defense system present from birth."
+                },
+                {
+                    question: "Which type of immunity remembers previous encounters with specific pathogens and destroys them when they attack again?",
+                    options: ["Innate immunity", "Passive immunity", "Adaptive immunity", "Natural immunity"],
+                    correctAnswerIndex: 2,
+                    explanation: "Adaptive (or acquired) immunity is characterized by its specificity and immunological memory."
+                },
+                {
+                    question: "Passive immunity is provided when a person is given:",
+                    options: ["Vaccines", "Antigens", "Antibodies", "T cells"],
+                    correctAnswerIndex: 2,
+                    explanation: "Passive immunity involves the transfer of pre-formed antibodies, such as from mother to baby or through blood therapy."
+                },
+                {
+                    question: "Which of the following is an example of an anatomical/mechanical barrier of immunity?",
+                    options: ["Enzymes in tears", "Stomach acid", "Skin", "Anti-bacterial proteins in semen"],
+                    correctAnswerIndex: 2,
+                    explanation: "The skin provides a physical barrier against pathogen entry."
+                },
+                {
+                    question: "What are the two large ducts that lymph vessels eventually join to empty into the subclavian veins?",
+                    options: ["Renal ducts and hepatic ducts", "Thoracic duct and right lymphatic duct", "Cystic ducts and pancreatic ducts", "Ureters and urethra"],
+                    correctAnswerIndex: 1,
+                    explanation: "The thoracic duct and right lymphatic duct are the two main lymphatic vessels that return lymph to the bloodstream."
+                },
+                {
+                    question: "What is the term for the process by which macrophages and other immune cells engulf and destroy pathogens and cellular debris?",
+                    options: ["Exocytosis", "Pinocytosis", "Phagocytosis", "Endocytosis"],
+                    correctAnswerIndex: 2,
+                    explanation: "Phagocytosis is the process of engulfing and breaking down foreign particles or cells."
+                },
+                {
+                    question: "Which type of lymphocyte is responsible for cell-mediated immunity and includes 'killer' and 'helper' subtypes?",
+                    options: ["B lymphocytes", "T lymphocytes", "Natural killer cells", "Plasma cells"],
+                    correctAnswerIndex: 1,
+                    explanation: "T lymphocytes are central to cell-mediated immunity, directly attacking infected cells or coordinating immune responses."
+                },
+                {
+                    question: "Which part of the lymph node is a concave surface where numerous lymph vessels enter and one lymph vessel leaves?",
+                    options: ["Capsule", "Trabeculae", "Cortex", "Hilum"],
+                    correctAnswerIndex: 3,
+                    explanation: "The hilum is the indented region of the lymph node where blood vessels and efferent lymphatic vessels enter and exit."
+                },
+                {
+                    question: "What happens to lymph nodes when bacteria have not all been destroyed, leading to inflammation?",
+                    options: ["They shrink", "They become enlarged", "They disappear", "They stop filtering lymph"],
+                    correctAnswerIndex: 1,
+                    explanation: "Enlarged lymph nodes (lymphadenopathy) often indicate an active immune response to infection or inflammation."
+                },
+                {
+                    question: "The spleen contains splenic pulp, which consists of:",
+                    options: ["Red bone marrow", "Lymphocytes and macrophages", "Adipose tissue", "Cartilage"],
+                    correctAnswerIndex: 1,
+                    explanation: "The splenic pulp is rich in immune cells like lymphocytes and macrophages, which are involved in filtering blood and immune surveillance."
+                },
+                {
+                    question: "At what age does the thymus typically start depleting?",
+                    options: ["Birth", "Childhood", "Puberty", "Old age"],
+                    correctAnswerIndex: 2,
+                    explanation: "The thymus is most active during childhood and adolescence, after which it gradually atrophies and is replaced by fat."
+                },
+                {
+                    question: "Which lymphoid tissue is strategically placed in mucosal linings and helps detect invaders, but does NOT filter lymph?",
+                    options: ["Lymph nodes", "Spleen", "Thymus", "MALT (Mucosa-Associated Lymphoid Tissue)"],
+                    correctAnswerIndex: 3,
+                    explanation: "MALT is a diffuse system of lymphoid tissue found in mucosal areas, providing local immune protection without acting as a filter for circulating lymph."
+                },
+
+                // Reproductive System (30 questions)
+                {
+                    question: "What is the primary function of the reproductive system?",
+                    options: ["Digestion of food", "Production of offspring and hormones", "Filtering blood", "Gas exchange"],
+                    correctAnswerIndex: 1,
+                    explanation: "The reproductive system's main roles are to produce gametes (sperm and eggs) and hormones, and to facilitate the creation of new life."
+                },
+                {
+                    question: "Which of the following is part of the female external genitalia?",
+                    options: ["Uterus", "Ovaries", "Labia majora", "Fallopian tubes"],
+                    correctAnswerIndex: 2,
+                    explanation: "The labia majora are part of the vulva, which constitutes the female external genitalia."
+                },
+                {
+                    question: "The fibromuscular tube that acts as a receptacle for the penis during intercourse and an elastic passageway for childbirth is the:",
+                    options: ["Uterus", "Cervix", "Vagina", "Urethra"],
+                    correctAnswerIndex: 2,
+                    explanation: "The vagina is a muscular canal that extends from the vulva to the uterus."
+                },
+                {
+                    question: "What is the inner layer of the uterus that sheds during the menstrual cycle if fertilization does not occur?",
+                    options: ["Perimetrium", "Myometrium", "Endometrium", "Cervix"],
+                    correctAnswerIndex: 2,
+                    explanation: "The endometrium is the highly vascularized inner lining of the uterus that prepares for embryo implantation and sheds during menstruation."
+                },
+                {
+                    question: "Which hormone primarily causes the maturation of an egg in the ovary during the menstrual cycle?",
+                    options: ["Luteinising Hormone (LH)", "Oestrogen", "Progesterone", "Follicle Stimulating Hormone (FSH)"],
+                    correctAnswerIndex: 3,
+                    explanation: "FSH stimulates the growth and development of ovarian follicles, which contain the eggs."
+                },
+                {
+                    question: "Which hormone triggers ovulation (the release of the egg) during the menstrual cycle?",
+                    options: ["FSH", "Oestrogen", "Progesterone", "Luteinising Hormone (LH)"],
+                    correctAnswerIndex: 3,
+                    explanation: "A surge in LH triggers ovulation."
+                },
+                {
+                    question: "Where does fertilization usually take place in the female reproductive system?",
+                    options: ["Uterus", "Ovary", "Vagina", "Fallopian tubes"],
+                    correctAnswerIndex: 3,
+                    explanation: "Fertilization, the fusion of sperm and egg, typically occurs in the fallopian (uterine) tubes."
+                },
+                {
+                    question: "What are the female gonads that store female gametes and release hormones?",
+                    options: ["Fallopian tubes", "Uterus", "Ovaries", "Cervix"],
+                    correctAnswerIndex: 2,
+                    explanation: "Ovaries are the primary female reproductive organs, producing eggs and female hormones."
+                },
+                {
+                    question: "Which hormone stimulates milk production and release from the mammary glands (breasts)?",
+                    options: ["Oestrogen", "Progesterone", "Prolactin", "Oxytocin"],
+                    correctAnswerIndex: 2,
+                    explanation: "Prolactin is the hormone primarily responsible for stimulating milk production after childbirth."
+                },
+                {
+                    question: "Which of the following is NOT an overall function of the female reproductive system?",
+                    options: ["Formation of ovum", "Reception of spermatozoa", "Production of testosterone", "Childbirth"],
+                    correctAnswerIndex: 2,
+                    explanation: "Testosterone production is primarily a male reproductive function."
+                },
+                {
+                    question: "What is the pouch of pigmented skin and smooth muscle that contains the testes in males?",
+                    options: ["Penis", "Prostate gland", "Scrotum", "Seminal vesicle"],
+                    correctAnswerIndex: 2,
+                    explanation: "The scrotum is the external sac that houses the testes."
+                },
+                {
+                    question: "Where are spermatozoa (sperm) produced, matured, and stored?",
+                    options: ["Prostate gland", "Seminal vesicles", "Testes", "Urethra"],
+                    correctAnswerIndex: 2,
+                    explanation: "Sperm are produced in the testes and mature and are stored in the epididymis, which is closely associated with the testes."
+                },
+                {
+                    question: "What is the function of the head of a sperm?",
+                    options: ["To provide mobility", "To contain the nucleus with DNA and enzymes to penetrate the ovum", "To fuel the propelling action", "To produce seminal fluid"],
+                    correctAnswerIndex: 1,
+                    explanation: "The sperm head contains the genetic material and enzymes necessary for fertilization."
+                },
+                {
+                    question: "Which male reproductive gland secretes a thin, milky fluid that is about 30% of the volume of semen and contains a clotting enzyme?",
+                    options: ["Seminal vesicle", "Testis", "Prostate gland", "Epididymis"],
+                    correctAnswerIndex: 2,
+                    explanation: "The prostate gland contributes a significant portion of the seminal fluid, which helps activate sperm."
+                },
+                {
+                    question: "The male urethra provides a common pathway for the flow of:",
+                    options: ["Urine and blood", "Semen and blood", "Urine and semen", "Digestive fluids and urine"],
+                    correctAnswerIndex: 2,
+                    explanation: "The male urethra serves as a conduit for both urine and semen."
+                },
+                {
+                    question: "Which part of the penis expands into a triangular structure called the glans penis?",
+                    options: ["Root", "Shaft", "Corpus cavernosum", "Corpus spongiosum"],
+                    correctAnswerIndex: 1, // The shaft's distal end forms the glans.
+                    explanation: "The shaft (body) of the penis terminates in the glans penis, which is the sensitive tip."
+                },
+                {
+                    question: "What is the main function of the uterus?",
+                    options: ["To produce eggs", "To receive and nourish a fertilized ovum and support fetal development", "To produce seminal fluid", "To transport sperm"],
+                    correctAnswerIndex: 1,
+                    explanation: "The uterus is the organ where a fertilized egg implants and develops into a fetus."
+                },
+                {
+                    question: "The menstrual cycle is primarily controlled by hormones from the:",
+                    options: ["Adrenal glands and kidneys", "Thyroid gland and parathyroid glands", "Hypothalamic and anterior pituitary hormones", "Pancreas and liver"],
+                    correctAnswerIndex: 2,
+                    explanation: "The menstrual cycle is regulated by a complex interplay of hormones from the hypothalamus, pituitary gland, and ovaries."
+                },
+                {
+                    question: "What is a zygote?",
+                    options: ["An unfertilized egg", "A mature sperm cell", "A fertilized ovum", "An embryo after 8 weeks"],
+                    correctAnswerIndex: 2,
+                    explanation: "A zygote is the single cell formed after the fertilization of an egg by a sperm."
+                },
+                {
+                    question: "After approximately how many weeks is a zygote referred to as an embryo?",
+                    options: ["Immediately after fertilization", "After 1 week", "After 2 weeks", "After 8 weeks"],
+                    correctAnswerIndex: 2, // Zygote to embryo is typically around 2 weeks.
+                    explanation: "The term 'embryo' is used from about the second week after fertilization until the end of the eighth week."
+                },
+                {
+                    question: "What is the function of the fimbriae at the end of the fallopian tubes?",
+                    options: ["To produce eggs", "To propel ovum from the ovary to the uterus", "To secrete hormones", "To receive sperm"],
+                    correctAnswerIndex: 1,
+                    explanation: "Fimbriae are finger-like projections that sweep the ovum into the fallopian tube after ovulation."
+                },
+                {
+                    question: "The two layers of the ovary are the medulla and the:",
+                    options: ["Cortex", "Hilum", "Stroma", "Follicle"],
+                    correctAnswerIndex: 0,
+                    explanation: "The ovary consists of an inner medulla and an outer cortex, where ovarian follicles are located."
+                },
+                {
+                    question: "What is the function of the lactiferous ducts in the breasts?",
+                    options: ["To produce milk", "To store fat", "To drain milk to the nipple", "To support breast tissue"],
+                    correctAnswerIndex: 2,
+                    explanation: "Lactiferous ducts carry milk from the glandular lobules to the nipple."
+                },
+                {
+                    question: "Which structure in the male reproductive system stores and matures sperm?",
+                    options: ["Seminal vesicle", "Prostate gland", "Vas deferens", "Epididymis"],
+                    correctAnswerIndex: 3,
+                    explanation: "The epididymis is a coiled tube where sperm mature and are stored."
+                },
+                {
+                    question: "The two 2cm tubes formed by the union of the seminal vesicle and deferent duct, which carry sperm and seminal fluid to the urethra, are called the:",
+                    options: ["Ureters", "Ejaculatory ducts", "Urethra", "Spermatic cords"],
+                    correctAnswerIndex: 1,
+                    explanation: "The ejaculatory ducts are formed by the convergence of the vas deferens and seminal vesicles."
+                },
+                {
+                    question: "What is the term for the process of childbirth?",
+                    options: ["Fertilization", "Ovulation", "Menstruation", "Parturition"],
+                    correctAnswerIndex: 3,
+                    explanation: "Parturition is the medical term for the act of giving birth."
+                },
+                {
+                    question: "Which female reproductive organ is also known as the 'womb'?",
+                    options: ["Ovary", "Fallopian tube", "Uterus", "Vagina"],
+                    correctAnswerIndex: 2,
+                    explanation: "The uterus is commonly referred to as the womb."
+                },
+                {
+                    question: "What is the primary male sex hormone produced by the testes?",
+                    options: ["Estrogen", "Progesterone", "Testosterone", "Prolactin"],
+                    correctAnswerIndex: 2,
+                    explanation: "Testosterone is the main androgen produced by the testes, essential for male reproductive development and function."
+                },
+                {
+                    question: "The 'areola' is the pigmented area surrounding which part of the breast?",
+                    options: ["Lobule", "Lactiferous duct", "Nipple", "Adipose tissue"],
+                    correctAnswerIndex: 2,
+                    explanation: "The areola is the darker pigmented area around the nipple."
+                },
+                {
+                    question: "Which male reproductive structure consists of three cylindrical masses of erectile tissue and smooth muscle?",
+                    options: ["Testis", "Epididymis", "Prostate gland", "Penis"],
+                    correctAnswerIndex: 3,
+                    explanation: "The penis is composed of erectile tissues (corpora cavernosa and corpus spongiosum) that fill with blood during erection."
                 }
             ];
 
