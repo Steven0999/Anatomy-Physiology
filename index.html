@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anatomy & Physiology Quiz - Kahoot Style</title>
-    <style>
-        /* --- CSS for the Quiz Interface --- */
+ /* --- CSS for the Quiz Interface --- */
         body {
             font-family: 'Arial', sans-serif;
             display: flex;
@@ -55,8 +48,6 @@
             font-weight: bold;
         }
 
-        /* Removed #timer specific CSS */
-
         .btn {
             background-color: #FFC107; /* Orange/Yellow button */
             color: #333;
@@ -74,6 +65,12 @@
         .btn:hover {
             background-color: #FFD54F;
             transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .answer-grid {
@@ -94,8 +91,8 @@
         }
 
         /* Specific colors for Kahoot-like answer buttons */
-        .answer-btn:nth-child(1) { background-color: #F44336; color: white; } /* Red */
-        .answer-btn:nth-child(2) { background-color: #4CAF50; color: white; } /* Green */
+        .answer-btn:nth-child(1) { background-color: orange; color: white; } /* Orange */
+        .answer-btn:nth-child(2) { background-color: purple; color: white; } /* Purple */
         .answer-btn:nth-child(3) { background-color: #2196F3; color: white; } /* Blue */
         .answer-btn:nth-child(4) { background-color: #FFEB3B; color: #333; } /* Yellow */
 
@@ -116,16 +113,62 @@
             min-height: 30px; /* Reserve space */
         }
 
-        #explanation {
-            margin-top: 15px;
-            font-size: 1em;
-            color: #e0e0e0;
-            text-align: left;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            display: none; /* Hidden by default */
+        /* --- Custom Pop-up Styles --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it's on top */
         }
+
+        .popup-overlay.hidden {
+            display: none;
+        }
+
+        .popup-content {
+            background-color: #333; /* Dark background for pop-up */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.8); /* Start smaller */
+            opacity: 0; /* Start invisible */
+            transition: all 0.3s ease-out; /* Smooth transition for appearance */
+        }
+
+        /* Animation for when the popup becomes visible */
+        .popup-overlay:not(.hidden) .popup-content {
+            transform: scale(1); /* Scale up when visible */
+            opacity: 1; /* Fade in when visible */
+        }
+
+        #popup-feedback {
+            color: #FFEB3B; /* Yellow color for feedback */
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        #popup-explanation {
+            color: #e0e0e0; /* Light grey for explanation text */
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            text-align: left; /* Align explanation text to the left */
+        }
+
+        #popup-next-btn {
+            margin-top: 10px;
+            max-width: 200px; /* Make the button a bit smaller than general .btn */
+        }
+        /* --- End Custom Pop-up Styles --- */
+
 
         #final-score {
             color: #FFEB3B;
@@ -161,6 +204,15 @@
                 padding: 12px 20px;
                 font-size: 1em;
             }
+            .popup-content {
+                padding: 20px;
+            }
+            #popup-feedback {
+                font-size: 1.5em;
+            }
+            #popup-explanation {
+                font-size: 0.95em;
+            }
         }
         /* --- End CSS --- */
     </style>
@@ -168,14 +220,13 @@
 <body>
     <div class="quiz-container">
         <div id="quiz-start-screen" class="screen">
-            <h1>Anatomy & Physiology Quiz <br /> Good Luck</h1>
+            <h1>HART Quiz</h1>
             <button id="start-quiz-btn" class="btn">Start Quiz</button>
         </div>
 
         <div id="quiz-game-screen" class="screen hidden">
             <div class="header">
                 <div id="question-number">Question 1 of X</div>
-                <!-- Removed timer display -->
             </div>
             <h2 id="question-text"></h2>
             <div id="answer-buttons" class="answer-grid">
@@ -185,7 +236,6 @@
                 <button class="btn answer-btn" data-answer-index="3"></button>
             </div>
             <div id="feedback-message"></div>
-            <div id="explanation"></div>
             <div class="navigation-buttons">
                 <button id="prev-question-btn" class="btn">Previous</button>
                 <button id="next-question-btn" class="btn">Next</button>
@@ -199,6 +249,13 @@
         </div>
     </div>
 
+    <div id="custom-popup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <h3 id="popup-feedback"></h3>
+            <p id="popup-explanation"></p>
+            <button id="popup-next-btn" class="btn">Continue</button>
+        </div>
+    </div>
     <script>
         /* --- JavaScript for Quiz Logic --- */
         document.addEventListener('DOMContentLoaded', () => {
@@ -209,27 +266,29 @@
             const startQuizBtn = document.getElementById('start-quiz-btn');
             const restartQuizBtn = document.getElementById('restart-quiz-btn');
             const prevQuestionBtn = document.getElementById('prev-question-btn');
-            const nextQuestionBtn = document.getElementById('next-question-btn');
+            const nextQuestionBtn = document.getElementById('next-question-btn'); // Main navigation 'Next'
 
             const questionNumberSpan = document.getElementById('question-number');
-            // Removed timerDisplay constant
             const questionText = document.getElementById('question-text');
             const answerButtonsContainer = document.getElementById('answer-buttons');
-            const feedbackMessage = document.getElementById('feedback-message');
-            const explanationDiv = document.getElementById('explanation');
+            const feedbackMessage = document.getElementById('feedback-message'); // This stays for immediate feedback below buttons
             const finalScoreSpan = document.getElementById('final-score');
             const totalQuestionsSpan = document.getElementById('total-questions');
+
+            // Custom Pop-up elements
+            const customPopup = document.getElementById('custom-popup');
+            const popupFeedback = document.getElementById('popup-feedback');
+            const popupExplanation = document.getElementById('popup-explanation');
+            const popupNextBtn = document.getElementById('popup-next-btn'); // 'Continue' button inside the popup
 
             let questions = []; // This will hold the shuffled questions for the current quiz session
             let currentQuestionIndex = 0;
             let score = 0;
-            // Removed timer variables (timer, timeLeft, initialTime)
             let questionAnswered = false; // Flag to prevent multiple answers per question
-            const answeredQuestions = new Map(); // To store answers and whether they were correct {index: {selected: 1, correct: true}}
+            // To store answers and whether they were correct {questionIndex: {selectedOptionIndex: 1, correct: true, scoreAwarded: 1}}
+            const answeredQuestionsState = new Map(); 
 
             // --- ALL QUIZ QUESTIONS ---
-            // These questions are derived from the provided presentation materials,
-            // focusing on risk factors, symptoms, categories, red flags, and management.
             const allQuestions = [
                                // --- NEW ANATOMY & PHYSIOLOGY QUESTIONS ---
 
@@ -1326,164 +1385,184 @@
                 }
             ];
 
-            // Function to shuffle an array (Fisher-Yates algorithm)
-            function shuffleArray(array) {
+           function shuffleArray(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
+                    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
                 }
-                return array;
             }
 
-            // Function to start the quiz
-            function startQuiz() {
-                questions = shuffleArray([...allQuestions]); // Shuffle a copy of all questions
-                startScreen.classList.add('hidden');
-                gameScreen.classList.remove('hidden');
+            function startGame() {
+                shuffleArray(allQuestions); // Shuffle all questions at the start
+                questions = allQuestions; // Assign shuffled questions to the active set
                 currentQuestionIndex = 0;
                 score = 0;
-                answeredQuestions.clear(); // Clear previous answers
-                totalQuestionsSpan.textContent = questions.length;
-                loadQuestion();
+                answeredQuestionsState.clear(); // Clear previous session's answers
+
+                startScreen.classList.add('hidden');
+                gameScreen.classList.remove('hidden');
+                endScreen.classList.add('hidden');
+
+                displayQuestion(currentQuestionIndex);
             }
 
-            // Function to load a question
-            function loadQuestion() {
-                questionAnswered = false;
-                resetButtons();
-                explanationDiv.style.display = 'none'; // Hide explanation for new question
-                feedbackMessage.textContent = ''; // Clear feedback
+            function displayQuestion(index) {
+                if (index < 0 || index >= questions.length) {
+                    endGame();
+                    return;
+                }
 
-                // Update navigation button states
-                prevQuestionBtn.disabled = (currentQuestionIndex === 0);
-                nextQuestionBtn.disabled = false; // Enable next, will be disabled after answer if no more questions
+                currentQuestionIndex = index;
+                const questionData = questions[currentQuestionIndex];
 
-                if (currentQuestionIndex < questions.length) {
-                    const currentQuestion = questions[currentQuestionIndex];
-                    questionNumberSpan.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
-                    questionText.textContent = currentQuestion.question;
+                questionNumberSpan.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+                questionText.textContent = questionData.question;
 
-                    const answerButtons = answerButtonsContainer.querySelectorAll('.answer-btn');
-                    answerButtons.forEach((button, index) => {
-                        button.textContent = currentQuestion.options[index];
-                        button.onclick = () => selectAnswer(index);
+                answerButtonsContainer.innerHTML = ''; // Clear previous buttons
+                questionData.options.forEach((option, i) => {
+                    const button = document.createElement('button');
+                    button.classList.add('btn', 'answer-btn');
+                    button.textContent = option;
+                    button.dataset.answerIndex = i;
+                    button.addEventListener('click', () => selectAnswer(i));
+                    answerButtonsContainer.appendChild(button);
+                });
 
-                        // If already answered, show selected and correct state
-                        if (answeredQuestions.has(currentQuestionIndex)) {
-                            const ansData = answeredQuestions.get(currentQuestionIndex);
-                            button.disabled = true; // Disable if already answered
-                            if (index === ansData.selected) {
-                                button.classList.add(ansData.correct ? 'correct' : 'incorrect');
-                            }
-                            // Show the correct answer if the previously selected answer was incorrect
-                            if (index === currentQuestion.correctAnswerIndex && !ansData.correct) {
-                                button.classList.add('correct');
-                            }
-                            feedbackMessage.textContent = ansData.correct ? "Correct!" : "Incorrect!";
-                            feedbackMessage.style.color = ansData.correct ? '#8BC34A' : '#EF5350';
-                            explanationDiv.textContent = `Explanation: ${currentQuestion.explanation}`;
-                            explanationDiv.style.display = 'block';
-                            questionAnswered = true; // Mark as answered to prevent re-answering
+                // Reset feedback and hide pop-up
+                feedbackMessage.textContent = '';
+                customPopup.classList.add('hidden'); // Ensure pop-up is hidden when new question displays
+
+                // Re-enable all buttons and remove styling
+                const allAnswerBtns = answerButtonsContainer.querySelectorAll('.answer-btn');
+                allAnswerBtns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.classList.remove('correct', 'incorrect');
+                });
+
+                // Check if this question was already answered and restore state for review
+                if (answeredQuestionsState.has(currentQuestionIndex)) {
+                    const state = answeredQuestionsState.get(currentQuestionIndex);
+                    allAnswerBtns.forEach(btn => {
+                        btn.disabled = true; // Disable all if already answered
+                        if (parseInt(btn.dataset.answerIndex) === state.selectedOptionIndex) {
+                            btn.classList.add(state.correct ? 'correct' : 'incorrect');
                         }
                     });
-                    // This 'if' block was misplaced, causing the SyntaxError.
-                    // It should be part of the outer 'if (currentQuestionIndex < questions.length)' block.
-                    if (currentQuestionIndex === questions.length - 1) {
-                        nextQuestionBtn.disabled = true;
-                    }
+                    // Show correct answer for review
+                    allAnswerBtns[questionData.correctAnswerIndex].classList.add('correct');
+                    feedbackMessage.textContent = state.correct ? 'Correct!' : 'Incorrect.';
+                    // For review mode, we are not showing the popup again directly on display,
+                    // but the user could click "Previous" and the correct/incorrect styling will be there.
+                    questionAnswered = true; // Mark as answered for navigation purposes
                 } else {
-                    endQuiz();
+                    questionAnswered = false; // Not yet answered
                 }
+                updateNavigationButtons();
             }
 
-            // Function to reset button styles and enable them
-            function resetButtons() {
-                const answerButtons = answerButtonsContainer.querySelectorAll('.answer-btn');
-                answerButtons.forEach(button => {
-                    button.classList.remove('correct', 'incorrect');
-                    button.disabled = false;
-                });
-            }
-
-            // Function to handle answer selection
             function selectAnswer(selectedIndex) {
-                if (questionAnswered) return; // Prevent multiple answers
+                if (questionAnswered) return; // Prevent answering again
+
                 questionAnswered = true;
+                const questionData = questions[currentQuestionIndex];
+                const isCorrect = (selectedIndex === questionData.correctAnswerIndex);
 
-                const currentQuestion = questions[currentQuestionIndex];
-                const answerButtons = answerButtonsContainer.querySelectorAll('.answer-btn');
-                const correctButton = answerButtons[currentQuestion.correctAnswerIndex];
-                const selectedButton = answerButtons[selectedIndex];
-
-                answerButtons.forEach(button => {
-                    button.disabled = true; // Disable all answer buttons after selection
+                const allAnswerBtns = answerButtonsContainer.querySelectorAll('.answer-btn');
+                allAnswerBtns.forEach(btn => {
+                    btn.disabled = true; // Disable all buttons after an answer is selected
+                    if (parseInt(btn.dataset.answerIndex) === selectedIndex) {
+                        btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+                    }
                 });
 
-                let isCorrect = false;
-                if (selectedIndex === currentQuestion.correctAnswerIndex) {
+                // Always show the correct answer visually
+                allAnswerBtns[questionData.correctAnswerIndex].classList.add('correct');
+
+                if (isCorrect) {
                     score++;
-                    selectedButton.classList.add('correct');
-                    feedbackMessage.textContent = "Correct!";
-                    feedbackMessage.style.color = '#8BC34A';
-                    isCorrect = true;
+                    feedbackMessage.textContent = 'Correct!'; // Update immediate feedback
+                    popupFeedback.textContent = 'Correct!'; // Set pop-up feedback
                 } else {
-                    selectedButton.classList.add('incorrect');
-                    correctButton.classList.add('correct'); // Show the correct answer
-                    feedbackMessage.textContent = "Incorrect!";
-                    feedbackMessage.style.color = '#EF5350';
+                    feedbackMessage.textContent = 'Incorrect.'; // Update immediate feedback
+                    popupFeedback.textContent = 'Incorrect.'; // Set pop-up feedback
                 }
 
-                // Store the answer for navigation
-                answeredQuestions.set(currentQuestionIndex, { selected: selectedIndex, correct: isCorrect });
+                popupExplanation.textContent = questionData.explanation; // Set pop-up explanation
+                customPopup.classList.remove('hidden'); // Show the custom pop-up
 
-                explanationDiv.textContent = `Explanation: ${currentQuestion.explanation}`;
-                explanationDiv.style.display = 'block';
+                // Temporarily disable main navigation buttons while pop-up is active
+                prevQuestionBtn.disabled = true;
+                nextQuestionBtn.disabled = true;
 
-                // Automatically move to next question after a delay if not the last question
-                if (currentQuestionIndex < questions.length - 1) {
-                    setTimeout(() => {
-                        currentQuestionIndex++;
-                        loadQuestion();
-                    }, 5000); // Wait 5 seconds before moving to next
+                // Store the answer state
+                answeredQuestionsState.set(currentQuestionIndex, {
+                    selectedOptionIndex: selectedIndex,
+                    correct: isCorrect,
+                    scoreAwarded: isCorrect ? 1 : 0
+                });
+
+                // Navigation buttons will be updated when the popup is dismissed and next question loads
+            }
+
+            function updateNavigationButtons() {
+                // This function is called by displayQuestion() and at end of startGame().
+                // It sets the base state of navigation buttons.
+                prevQuestionBtn.disabled = currentQuestionIndex === 0;
+                
+                if (currentQuestionIndex === questions.length - 1) {
+                    nextQuestionBtn.textContent = 'Finish Quiz';
                 } else {
-                    // If it's the last question, just display feedback and explanation
-                    nextQuestionBtn.disabled = true; // Disable next button at the end
-                    setTimeout(endQuiz, 5000); // End quiz after delay
+                    nextQuestionBtn.textContent = 'Next';
+                }
+                
+                // Crucially, only enable the 'Next' button if the pop-up is not currently shown.
+                // The pop-up's 'Continue' button handles progression when the pop-up is active.
+                if (customPopup.classList.contains('hidden')) {
+                     nextQuestionBtn.disabled = false; // Re-enable if pop-up is hidden
                 }
             }
 
-            // Removed startTimer function entirely
+            function handleNextQuestion() {
+                customPopup.classList.add('hidden'); // Ensure pop-up is hidden when navigating
+                if (currentQuestionIndex < questions.length - 1) {
+                    displayQuestion(currentQuestionIndex + 1);
+                } else {
+                    endGame();
+                }
+            }
 
-            // Function to end the quiz and show final score
-            function endQuiz() {
+            function handlePreviousQuestion() {
+                customPopup.classList.add('hidden'); // Ensure pop-up is hidden when navigating
+                if (currentQuestionIndex > 0) {
+                    displayQuestion(currentQuestionIndex - 1);
+                }
+            }
+
+            function endGame() {
                 gameScreen.classList.add('hidden');
                 endScreen.classList.remove('hidden');
-                finalScoreSpan.textContent = score;
+                customPopup.classList.add('hidden'); // Ensure popup is hidden at end of game
+
+                // Recalculate final score based on answeredQuestionsState
+                let finalScore = 0;
+                answeredQuestionsState.forEach(state => {
+                    finalScore += state.scoreAwarded;
+                });
+
+                finalScoreSpan.textContent = finalScore;
                 totalQuestionsSpan.textContent = questions.length;
             }
 
-            // Navigation button event listeners
-            prevQuestionBtn.addEventListener('click', () => {
-                if (currentQuestionIndex > 0) {
-                    currentQuestionIndex--;
-                    loadQuestion();
-                }
-            });
+            // Event Listeners
+            startQuizBtn.addEventListener('click', startGame);
+            restartQuizBtn.addEventListener('click', startGame);
+            
+            // Main navigation buttons
+            nextQuestionBtn.addEventListener('click', handleNextQuestion);
+            prevQuestionBtn.addEventListener('click', handlePreviousQuestion);
 
-            nextQuestionBtn.addEventListener('click', () => {
-                // Only move to the next question if it's not the last one
-                if (currentQuestionIndex < questions.length - 1) {
-                    currentQuestionIndex++;
-                    loadQuestion();
-                } else {
-                    // If it's the last question, clicking next should end the quiz
-                    endQuiz();
-                }
-            });
-
-            // Initial setup - attach event listeners to start and restart buttons
-            startQuizBtn.addEventListener('click', startQuiz);
-            restartQuizBtn.addEventListener('click', startQuiz);
+            // Pop-up's 'Continue' button
+            popupNextBtn.addEventListener('click', handleNextQuestion); // Clicking 'Continue' in popup moves to next question
         });
         /* --- End JavaScript --- */
     </script>
